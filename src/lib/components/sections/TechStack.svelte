@@ -19,6 +19,22 @@
 		'Docker',
 		'Tailwind'
 	];
+
+	// Warna berbeda untuk setiap teknologi berdasarkan brand identity
+	const colorMap: Record<string, { bg: string; text: string }> = {
+		'React': { bg: 'bg-cyan-500/20', text: 'text-cyan-400' },
+		'Svelte': { bg: 'bg-orange-500/20', text: 'text-orange-400' },
+		'Vue.js': { bg: 'bg-emerald-500/20', text: 'text-emerald-400' },
+		'Next.js': { bg: 'bg-white/20', text: 'text-white' },
+		'Node.js': { bg: 'bg-green-500/20', text: 'text-green-400' },
+		'TypeScript': { bg: 'bg-blue-500/20', text: 'text-blue-400' },
+		'Python': { bg: 'bg-yellow-500/20', text: 'text-yellow-400' },
+		'PostgreSQL': { bg: 'bg-indigo-500/20', text: 'text-indigo-400' },
+		'MongoDB': { bg: 'bg-green-600/20', text: 'text-green-500' },
+		'AWS': { bg: 'bg-amber-500/20', text: 'text-amber-400' },
+		'Docker': { bg: 'bg-sky-500/20', text: 'text-sky-400' },
+		'Tailwind': { bg: 'bg-teal-500/20', text: 'text-teal-400' }
+	};
 </script>
 
 <section id="tech-stack" class="bg-bg-secondary py-24 overflow-hidden">
@@ -36,12 +52,13 @@
 			<ScrollReveal delay={100}>
 				<Marquee speed={40} pauseOnHover={true}>
 					{#each technologies as tech}
+						{@const colors = colorMap[tech]}
 						<div
 							class="card-glow group flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6 mx-3"
 							style="min-width: 140px;"
 						>
 							<div
-								class="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-bg-elevated text-2xl font-bold text-text-primary transition-all duration-300 group-hover:scale-110"
+								class="mb-4 flex h-16 w-16 items-center justify-center rounded-xl {colors.bg} text-2xl font-bold {colors.text} transition-all duration-300 group-hover:scale-110"
 							>
 								{tech.charAt(0)}
 							</div>
@@ -57,12 +74,13 @@
 			<ScrollReveal delay={200}>
 				<Marquee speed={35} reverse={true} pauseOnHover={true}>
 					{#each [...technologies].reverse() as tech}
+						{@const colors = colorMap[tech]}
 						<div
 							class="card-glow group flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6 mx-3"
 							style="min-width: 140px;"
 						>
 							<div
-								class="mb-4 flex h-16 w-16 items-center justify-center rounded-xl bg-bg-elevated text-2xl font-bold text-text-primary transition-all duration-300 group-hover:scale-110"
+								class="mb-4 flex h-16 w-16 items-center justify-center rounded-xl {colors.bg} text-2xl font-bold {colors.text} transition-all duration-300 group-hover:scale-110"
 							>
 								{tech.charAt(0)}
 							</div>

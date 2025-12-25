@@ -88,7 +88,7 @@
 						<!-- Price -->
 						<div class="mb-6">
 							<div class="flex items-baseline gap-1">
-								<span class="text-4xl md:text-5xl font-extrabold text-text-primary">
+								<span class="text-3xl md:text-3xl font-extrabold text-text-primary">
 									{formatPrice(plan.price, $t.pricing.customPrice)}
 								</span>
 							</div>

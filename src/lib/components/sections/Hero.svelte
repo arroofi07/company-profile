@@ -21,7 +21,7 @@
 		{
 			icon: Mail,
 			label: 'Email',
-			href: 'mailto:solaria@gmail.com',
+			href: 'mailto:solariadev7@gmail.com',
 			color: 'bg-purple-500/20 text-purple-400 hover:bg-purple-500/30'
 		}
 	];
@@ -156,7 +156,7 @@
 							</div>
 							<div>
 								<p class="text-sm font-semibold text-text-primary">Email</p>
-								<p class="text-xs text-text-muted">solaria@gmail.com</p>
+								<p class="text-xs text-text-muted">solariadev7@gmail.com</p>
 							</div>
 						</div>
 					</div>

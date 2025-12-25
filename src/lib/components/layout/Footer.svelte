@@ -2,6 +2,7 @@
 	import { Instagram, Linkedin, Github, Twitter, Mail, Phone, MapPin } from 'lucide-svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import { t } from '$lib/i18n';
+	import logo from '$lib/assets/solaria.png';
 
 	const currentYear = new Date().getFullYear();
 </script>
@@ -11,7 +12,8 @@
 		<div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
 			<!-- Company Info -->
 			<div class="lg:col-span-1">
-				<a href="#hero" class="text-2xl font-bold">
+				<a href="#hero" class="flex items-center gap-3 text-2xl font-bold">
+					<img src={logo} alt="Solaria Logo" class="h-14 w-20" />
 					<span class="gradient-text">{$t.company.name}</span>
 				</a>
 				<p class="mt-4 text-text-secondary">

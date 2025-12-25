@@ -13,6 +13,16 @@
 		award: Award,
 		'heart-handshake': HeartHandshake
 	};
+
+	// Warna background dan icon untuk setiap feature
+	const colorMap: Record<number, { bg: string; icon: string }> = {
+		0: { bg: 'bg-yellow-500/20', icon: 'text-yellow-400' }, // Zap - Kuning
+		1: { bg: 'bg-green-500/20', icon: 'text-green-400' }, // Shield - Hijau
+		2: { bg: 'bg-blue-500/20', icon: 'text-blue-400' }, // Users - Biru
+		3: { bg: 'bg-orange-500/20', icon: 'text-orange-400' }, // Clock - Orange
+		4: { bg: 'bg-red-500/20', icon: 'text-red-400' }, // Award - Merah
+		5: { bg: 'bg-pink-500/20', icon: 'text-pink-400' } // HeartHandshake - Pink
+	};
 </script>
 
 <section id="why-us" class="bg-bg-secondary py-24 relative overflow-hidden">
@@ -43,13 +53,14 @@
 			<div class="grid gap-4 sm:grid-cols-2">
 				{#each $t.whyUs.features.slice(0, 4) as feature, i}
 					{@const Icon = iconMap[feature.icon]}
+					{@const colors = colorMap[i] || colorMap[0]}
 
 					<ScrollReveal delay={i * 80}>
 						<div class="card-glow group glass-purple rounded-2xl p-6 h-full transition-all duration-300">
 							<!-- Icon -->
-							<div class="mb-4 inline-flex rounded-xl bg-purple-500/20 p-3">
+							<div class="mb-4 inline-flex rounded-xl {colors.bg} p-3">
 								{#if Icon}
-									<Icon size={24} class="text-purple-400" />
+									<Icon size={24} class={colors.icon} />
 								{/if}
 							</div>
 
@@ -79,13 +90,14 @@
 		<div class="mt-8 grid gap-4 sm:grid-cols-2 lg:max-w-2xl lg:mx-auto">
 			{#each $t.whyUs.features.slice(4, 6) as feature, i}
 				{@const Icon = iconMap[feature.icon]}
+				{@const colors = colorMap[i + 4] || colorMap[0]}
 
 				<ScrollReveal delay={(i + 4) * 80}>
 					<div class="card-glow group glass-purple rounded-2xl p-6 h-full transition-all duration-300">
 						<!-- Icon -->
-						<div class="mb-4 inline-flex rounded-xl bg-purple-500/20 p-3">
+						<div class="mb-4 inline-flex rounded-xl {colors.bg} p-3">
 							{#if Icon}
-								<Icon size={24} class="text-purple-400" />
+								<Icon size={24} class={colors.icon} />
 							{/if}
 						</div>
 

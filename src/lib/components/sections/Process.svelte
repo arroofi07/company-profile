@@ -12,6 +12,14 @@
 		code: Code,
 		rocket: Rocket
 	};
+
+	// Warna untuk setiap step
+	const colorMap: Record<number, { bg: string; icon: string; ring: string }> = {
+		0: { bg: 'bg-red-500/20', icon: 'text-red-400', ring: 'ring-red-500/30' }, // Konsultasi - Merah
+		1: { bg: 'bg-yellow-500/20', icon: 'text-yellow-400', ring: 'ring-yellow-500/30' }, // Desain - Kuning
+		2: { bg: 'bg-green-500/20', icon: 'text-green-400', ring: 'ring-green-500/30' }, // Development - Hijau
+		3: { bg: 'bg-blue-500/20', icon: 'text-blue-400', ring: 'ring-blue-500/30' } // Launch - Biru
+	};
 </script>
 
 <section id="process" class="py-24 overflow-hidden bg-bg-tertiary">
@@ -29,6 +37,7 @@
 				<div class="grid grid-cols-4 gap-8">
 					{#each $t.process.steps as step, i}
 						{@const Icon = iconMap[step.icon]}
+						{@const colors = colorMap[i] || colorMap[0]}
 
 						<ScrollReveal delay={i * 150}>
 							<div class="relative text-center">
@@ -41,10 +50,10 @@
 										></div>
 										<!-- Inner circle -->
 										<div
-											class="card-glow relative flex h-24 w-24 items-center justify-center rounded-full bg-bg-elevated"
+											class="card-glow relative flex h-24 w-24 items-center justify-center rounded-full {colors.bg}"
 										>
 											{#if Icon}
-												<Icon size={36} class="text-text-primary" strokeWidth={1.5} />
+												<Icon size={36} class={colors.icon} strokeWidth={1.5} />
 											{/if}
 										</div>
 										<!-- Step number badge -->
@@ -83,16 +92,17 @@
 				<div class="space-y-8">
 					{#each $t.process.steps as step, i}
 						{@const Icon = iconMap[step.icon]}
+						{@const colors = colorMap[i] || colorMap[0]}
 
 						<ScrollReveal direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 100}>
 							<div class="relative flex gap-6 pl-4">
 								<!-- Step Circle -->
 								<div class="relative shrink-0">
 									<div
-										class="card-glow flex h-16 w-16 items-center justify-center rounded-full bg-bg-elevated ring-4 ring-bg-primary"
+										class="card-glow flex h-16 w-16 items-center justify-center rounded-full {colors.bg} ring-4 ring-bg-primary"
 									>
 										{#if Icon}
-											<Icon size={24} class="text-text-primary" />
+											<Icon size={24} class={colors.icon} />
 										{/if}
 									</div>
 									<div

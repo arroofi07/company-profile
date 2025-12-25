@@ -4,6 +4,7 @@
 	import Button from '$lib/components/ui/Button.svelte';
 	import LanguageSwitcher from '$lib/components/ui/LanguageSwitcher.svelte';
 	import { t } from '$lib/i18n';
+	import logo from '$lib/assets/solaria.png';
 
 	let isMenuOpen = $state(false);
 	let scrolled = $state(false);
@@ -32,8 +33,9 @@
 	<Container>
 		<div class="flex items-center justify-between">
 			<!-- Logo -->
-			<a href="#hero" class="text-xl font-bold">
-				<span class="gradient-text">{$t.company.name}</span>
+			<a href="#hero" class="flex items-center gap-2 text-xl font-bold">
+				<img src={logo} alt="Solaria Logo" class="h-10 w-16" />
+				<span class="gradient-text ">{$t.company.name}</span>
 			</a>
 
 			<!-- Desktop Navigation -->
