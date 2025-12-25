@@ -46,6 +46,7 @@
 		<div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
 			{#each $t.services.items as service, i}
 				{@const Icon = iconMap[service.icon]}
+				{@const colors = colorMap[i] || colorMap[0]}
 
 				<ScrollReveal delay={i * 80}>
 					<div
@@ -58,9 +59,9 @@
 
 						<div class="relative z-10 flex h-full flex-col">
 							<!-- Icon -->
-							<div class="mb-5 inline-flex rounded-2xl bg-purple-500/20 p-4 self-start">
+							<div class="mb-5 inline-flex rounded-2xl {colors.bg} p-4 self-start">
 								{#if Icon}
-									<Icon size={28} class="text-purple-400" />
+									<Icon size={28} class={colors.icon} />
 								{/if}
 							</div>
 
@@ -78,7 +79,7 @@
 							<ul class="space-y-2.5 mt-auto">
 								{#each service.features.slice(0, 3) as feature}
 									<li class="flex items-center gap-3 text-sm text-text-muted">
-										<span class="h-1.5 w-1.5 rounded-full bg-purple-400 shrink-0"></span>
+										<span class="h-1.5 w-1.5 rounded-full {colors.dot} shrink-0"></span>
 										{feature}
 									</li>
 								{/each}
