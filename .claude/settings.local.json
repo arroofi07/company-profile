@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(dir /s /b \"r:\\\\company-profile\\\\my-company\")",
+      "Bash(npm run check:*)",
+      "Bash(curl:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(timeout:*)",
+      "Bash(dir:*)",
+      "Bash(del \"r:\\\\company-profile\\\\my-company\\\\src\\\\lib\\\\components\\\\ui\\\\WaveDivider.svelte\")"
+    ]
+  }
+}
