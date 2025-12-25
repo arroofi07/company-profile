@@ -231,59 +231,81 @@ export const id = {
 	pricing: {
 		title: 'Pilih Paket yang Sesuai',
 		subtitle: 'Investasi terbaik untuk pertumbuhan bisnis digital Anda',
-		customPrice: 'Custom',
-		perProject: '/project',
+		customPrice: 'Negosiasi',
+		startingFrom: 'Mulai dari',
+		currency: 'IDR',
 		plans: [
 			{
-				id: 'starter',
-				name: 'Starter',
-				description: 'Cocok untuk bisnis kecil dan startup',
-				price: 3000000,
-				period: 'project',
+				id: 'landing-page',
+				name: 'Landing Page',
+				description: 'Personal, portofolio, event, kampanye singkat',
+				price: 900000,
+				icon: 'FileText',
 				features: [
-					'Website 5 halaman',
-					'Responsive design',
-					'Basic SEO setup',
-					'Contact form',
-					'2x revisi',
-					'Support 30 hari'
+					'Landing page 1 halaman',
+					'Multi-halaman (tambahan biaya)',
+					'Desain profesional & responsif',
+					'Formulir kontak sederhana',
+					'Integrasi media sosial',
+					'SEO dasar',
+					'Support 1 bulan'
 				],
 				cta: 'Pilih Paket'
 			},
 			{
-				id: 'professional',
-				name: 'Professional',
-				description: 'Untuk bisnis yang ingin berkembang',
-				price: 7500000,
-				period: 'project',
-				features: [
-					'Website 10 halaman',
-					'Responsive design',
-					'Advanced SEO',
-					'CMS integration',
-					'Custom animations',
-					'Revisi unlimited',
-					'Support 90 hari',
-					'Performance optimization'
-				],
+				id: 'web-dinamis',
+				name: 'Sistem / Web Dinamis',
+				description: 'Website dengan sistem internal',
+				price: 4000000,
+				icon: 'Database',
 				highlighted: true,
-				cta: 'Paling Populer'
+				features: [
+					'Sistem inventory / barang',
+					'Pencatatan keuangan',
+					'Top-up / pembayaran online',
+					'Booking / reservasi',
+					'Desain profesional & responsif',
+					'Sistem backend sesuai kebutuhan',
+					'Integrasi database & formulir',
+					'SEO dasar + Google Analytics',
+					'Support 3 bulan'
+				],
+				cta: 'Pilih Paket'
 			},
 			{
-				id: 'enterprise',
-				name: 'Enterprise',
-				description: 'Solusi custom untuk perusahaan besar',
-				price: null,
-				period: 'custom',
+				id: 'startup',
+				name: 'Startup / Web App',
+				description: 'Web application skala besar',
+				price: 10000000,
+				icon: 'Rocket',
 				features: [
-					'Halaman unlimited',
-					'Custom web application',
+					'Desain custom & responsif',
+					'Multi-user & role management',
+					'Dashboard admin & reporting',
+					'Sistem inventori & transaksi',
+					'Sistem pembayaran',
 					'API integration',
-					'Database design',
-					'Dedicated PM',
-					'Support 12 bulan',
-					'Priority response',
-					'SLA guarantee'
+					'SEO lanjutan + Google Analytics',
+					'Support 6-12 bulan'
+				],
+				cta: 'Pilih Paket'
+			},
+			{
+				id: 'custom',
+				name: 'Custom / Full Solution',
+				description: 'Fitur unik sesuai kebutuhan klien',
+				price: null,
+				icon: 'Sparkles',
+				hideStartingFrom: true,
+				features: [
+					'Semua fitur Paket Startup',
+					'Fitur unik sesuai kebutuhan',
+					'Integrasi pihak ketiga',
+					'Integrasi sistem internal',
+					'Mobile app companion',
+					'Full branding & desain custom',
+					'Maintenance jangka panjang',
+					'Support prioritas'
 				],
 				cta: 'Hubungi Kami'
 			}
@@ -371,7 +393,7 @@ export const id = {
 		ogDescription: 'Membangun pengalaman digital yang luar biasa. Dari konsep hingga peluncuran.'
 	},
 	company: {
-		name: 'SOLARIA',
+		name: 'SOLARIA DEV',
 		tagline: 'Membangun Pengalaman Digital yang Luar Biasa',
 		whatsapp: '+62 857 0946 6801',
 		email: 'solariadev7@gmail.com',

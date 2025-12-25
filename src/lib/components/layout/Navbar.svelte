@@ -67,14 +67,14 @@
 					>{$t.nav.pricing}</a
 				>
 				<a
+				href="#contact"
+				class="text-sm font-medium text-text-secondary transition-colors hover:text-purple-400"
+				>{$t.nav.contact}</a
+				>
+				<a
 					href="#faq"
 					class="text-sm font-medium text-text-secondary transition-colors hover:text-purple-400"
 					>{$t.nav.faq}</a
-				>
-				<a
-					href="#contact"
-					class="text-sm font-medium text-text-secondary transition-colors hover:text-purple-400"
-					>{$t.nav.contact}</a
 				>
 			</div>
 

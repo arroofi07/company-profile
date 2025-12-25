@@ -29,8 +29,8 @@
 	<Process />
 	<TechStack />
 	<Pricing />
-	<FAQ />
 	<Contact />
+	<FAQ />
 </main>
 
 <ScrollToTop />

@@ -1,21 +1,25 @@
 <script lang="ts">
-	import { Check } from 'lucide-svelte';
+	import { Check, FileText, Database, Rocket, Sparkles } from 'lucide-svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import ScrollReveal from '$lib/components/ui/ScrollReveal.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { t } from '$lib/i18n';
 
-	let isYearly = $state(false);
+	const iconMap: Record<string, typeof FileText> = {
+		FileText,
+		Database,
+		Rocket,
+		Sparkles
+	};
 
-	function formatPrice(price: number | null, customText: string): string {
-		if (price === null) return customText;
-		const adjustedPrice = isYearly ? Math.floor(price * 0.8) : price;
-		return new Intl.NumberFormat('id-ID', {
+	function formatPrice(price: number, currency: string): string {
+		const locale = currency === 'USD' ? 'en-US' : 'id-ID';
+		return new Intl.NumberFormat(locale, {
 			style: 'currency',
-			currency: 'IDR',
+			currency: currency,
 			minimumFractionDigits: 0,
 			maximumFractionDigits: 0
-		}).format(adjustedPrice);
+		}).format(price);
 	}
 </script>
 
@@ -36,76 +40,55 @@
 			</div>
 		</ScrollReveal>
 
-		<!-- Monthly/Yearly Toggle -->
-		<ScrollReveal delay={50}>
-			<div class="flex items-center justify-center gap-4 mb-12">
-				<button
-					onclick={() => isYearly = false}
-					class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300
-					{!isYearly ? 'bg-purple-500 text-white shadow-lg' : 'glass-purple text-text-secondary hover:text-text-primary'}"
-				>
-					Monthly
-				</button>
-				<button
-					onclick={() => isYearly = true}
-					class="px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 flex items-center gap-2
-					{isYearly ? 'bg-purple-500 text-white shadow-lg' : 'glass-purple text-text-secondary hover:text-text-primary'}"
-				>
-					Yearly
-					<span class="rounded-full bg-green-500 px-2 py-0.5 text-xs text-white">
-						Save 20%
-					</span>
-				</button>
-			</div>
-		</ScrollReveal>
-
-		<div class="grid gap-6 md:grid-cols-3 max-w-6xl mx-auto">
+		<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
 			{#each $t.pricing.plans as plan, i}
 				<ScrollReveal delay={i * 100}>
 					<div
-						class="relative h-full rounded-3xl p-8 transition-all duration-500 card-glow
+						class="relative h-full rounded-3xl p-6 transition-all duration-500 card-glow flex flex-col
 						{plan.highlighted
-							? 'glass-purple ring-2 ring-accent-cta scale-105 z-10'
+							? 'glass-purple ring-2 ring-accent-cta'
 							: 'glass-purple'}"
 					>
 						<!-- Popular Badge -->
 						{#if plan.highlighted}
-							<div class="absolute -top-4 left-1/2 -translate-x-1/2">
-								<div
-									class="rounded-full bg-accent-cta px-5 py-1.5 text-sm font-bold text-white shadow-lg"
-								>
-									Most Popular
-								</div>
+							<div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
+								<span class="rounded-full bg-accent-cta px-4 py-1 text-xs font-bold text-white shadow-lg whitespace-nowrap">
+									Paling Populer
+								</span>
 							</div>
 						{/if}
 
-						<!-- Plan Header -->
-						<div class="mb-6 {plan.highlighted ? 'mt-2' : ''}">
-							<span class="text-sm font-medium text-text-secondary">{plan.name} Plan</span>
-							<h3 class="text-2xl font-bold text-text-primary mt-1">{plan.name}</h3>
+						<!-- Icon -->
+						<div class="mb-4 p-3 rounded-xl bg-purple-500/10 w-fit {plan.highlighted ? 'mt-2' : ''}">
+							<svelte:component this={iconMap[plan.icon]} size={24} class="text-purple-400" />
 						</div>
+
+						<!-- Header -->
+						<h3 class="text-xl font-bold text-text-primary">{plan.name}</h3>
+						<p class="text-sm text-text-secondary mt-1 mb-4">{plan.description}</p>
+
+						<!-- Divider -->
+						<div class="h-px bg-white/10 my-4"></div>
 
 						<!-- Price -->
-						<div class="mb-6">
-							<div class="flex items-baseline gap-1">
-								<span class="text-3xl md:text-3xl font-extrabold text-text-primary">
-									{formatPrice(plan.price, $t.pricing.customPrice)}
-								</span>
-							</div>
-							{#if plan.price !== null}
-								<span class="text-text-secondary text-sm">{$t.pricing.perProject}</span>
+						<div class="mb-4">
+							{#if !plan.hideStartingFrom}
+								<p class="text-xs text-text-secondary mb-1">{$t.pricing.startingFrom}</p>
 							{/if}
+							<p class="text-2xl font-bold text-text-primary">
+								{plan.price ? formatPrice(plan.price, $t.pricing.currency) : $t.pricing.customPrice}
+							</p>
 						</div>
 
+						<!-- Divider -->
+						<div class="h-px bg-white/10 my-4"></div>
+
 						<!-- Features -->
-						<ul class="space-y-3 mb-8">
+						<ul class="space-y-2 mb-6 grow">
 							{#each plan.features as feature}
-								<li class="flex items-start gap-3">
-									<div
-										class="shrink-0 mt-0.5 flex h-5 w-5 items-center justify-center rounded-full
-										{plan.highlighted ? 'bg-green-500/20' : 'bg-purple-500/20'}"
-									>
-										<Check size={12} class="{plan.highlighted ? 'text-green-400' : 'text-purple-400'}" strokeWidth={3} />
+								<li class="flex items-start gap-2">
+									<div class="shrink-0 mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-purple-500/20">
+										<Check size={10} class="text-purple-400" strokeWidth={3} />
 									</div>
 									<span class="text-text-secondary text-sm">{feature}</span>
 								</li>
@@ -116,20 +99,15 @@
 						<Button
 							href="#contact"
 							variant={plan.highlighted ? 'cta' : 'outline'}
-							class="w-full"
+							class="w-full mt-auto"
 						>
 							{plan.cta}
-						</Button>
+					</Button>
 					</div>
 				</ScrollReveal>
 			{/each}
 		</div>
 
-		<!-- Trust info -->
-		<ScrollReveal delay={400}>
-			<p class="mt-12 text-center text-sm text-text-secondary">
-				<a href="#faq" class="text-purple-400 hover:underline">See FAQ</a> for more details about our plans
-			</p>
-		</ScrollReveal>
+		
 	</Container>
 </section>

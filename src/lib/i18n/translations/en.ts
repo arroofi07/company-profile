@@ -227,59 +227,81 @@ export const en = {
 	pricing: {
 		title: 'Choose Your Plan',
 		subtitle: 'Best investment for your digital business growth',
-		customPrice: 'Custom',
-		perProject: '/project',
+		customPrice: 'Negotiable',
+		startingFrom: 'Starting from',
+		currency: 'USD',
 		plans: [
 			{
-				id: 'starter',
-				name: 'Starter',
-				description: 'Perfect for small businesses and startups',
-				price: 3000000,
-				period: 'project',
+				id: 'landing-page',
+				name: 'Landing Page',
+				description: 'Personal, portfolio, event, short campaigns',
+				price: 55,
+				icon: 'FileText',
 				features: [
-					'5 pages website',
-					'Responsive design',
-					'Basic SEO setup',
-					'Contact form',
-					'2x revisions',
-					'30 days support'
+					'1 page landing page',
+					'Multi-page (additional fee)',
+					'Professional & responsive design',
+					'Simple contact form',
+					'Social media integration',
+					'Basic SEO',
+					'1 month support'
 				],
 				cta: 'Choose Plan'
 			},
 			{
-				id: 'professional',
-				name: 'Professional',
-				description: 'For growing businesses',
-				price: 7500000,
-				period: 'project',
-				features: [
-					'10 pages website',
-					'Responsive design',
-					'Advanced SEO',
-					'CMS integration',
-					'Custom animations',
-					'Unlimited revisions',
-					'90 days support',
-					'Performance optimization'
-				],
+				id: 'web-dinamis',
+				name: 'System / Dynamic Web',
+				description: 'Website with internal systems',
+				price: 245,
+				icon: 'Database',
 				highlighted: true,
-				cta: 'Most Popular'
+				features: [
+					'Inventory / goods system',
+					'Financial recording',
+					'Top-up / online payment',
+					'Booking / reservation',
+					'Professional & responsive design',
+					'Custom backend system',
+					'Database & form integration',
+					'Basic SEO + Google Analytics',
+					'3 months support'
+				],
+				cta: 'Choose Plan'
 			},
 			{
-				id: 'enterprise',
-				name: 'Enterprise',
-				description: 'Custom solutions for large companies',
-				price: null,
-				period: 'custom',
+				id: 'startup',
+				name: 'Startup / Web App',
+				description: 'Large-scale web application',
+				price: 615,
+				icon: 'Rocket',
 				features: [
-					'Unlimited pages',
-					'Custom web application',
+					'Custom & responsive design',
+					'Multi-user & role management',
+					'Admin dashboard & reporting',
+					'Inventory & transaction system',
+					'Payment system',
 					'API integration',
-					'Database design',
-					'Dedicated PM',
-					'12 months support',
-					'Priority response',
-					'SLA guarantee'
+					'Advanced SEO + Google Analytics',
+					'6-12 months support'
+				],
+				cta: 'Choose Plan'
+			},
+			{
+				id: 'custom',
+				name: 'Custom / Full Solution',
+				description: 'Unique features for your needs',
+				price: null,
+				icon: 'Sparkles',
+				hideStartingFrom: true,
+				features: [
+					'All Startup package features',
+					'Unique custom features',
+					'Third-party integration',
+					'Internal system integration',
+					'Mobile app companion',
+					'Full branding & custom design',
+					'Long-term maintenance',
+					'Priority support'
 				],
 				cta: 'Contact Us'
 			}
@@ -367,7 +389,7 @@ export const en = {
 		ogDescription: 'Building extraordinary digital experiences. From concept to launch.'
 	},
 	company: {
-		name: 'SOLARIA',
+		name: 'SOLARIA DEV',
 		tagline: 'Building Extraordinary Digital Experiences',
 		whatsapp: '+62 857 0946 6801',
 		email: 'solariadev7@gmail.com',
