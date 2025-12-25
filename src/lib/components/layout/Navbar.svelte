@@ -20,14 +20,16 @@
 		const handleScroll = () => {
 			scrolled = window.scrollY > 50;
 		};
+		// Check initial scroll position on mount
+		handleScroll();
 		window.addEventListener('scroll', handleScroll);
 		return () => window.removeEventListener('scroll', handleScroll);
 	});
 </script>
 
 <nav
-	class="fixed top-0 right-0 left-0 z-50 transition-all duration-300
-	{scrolled ? 'glass-purple border-b border-purple-500/20 py-3' : 'bg-transparent py-5'}"
+	class="glass-purple fixed top-0 right-0 left-0 z-50 transition-all duration-300
+	{scrolled ? 'border-b border-purple-500/20 py-3' : 'py-5'}"
 >
 	<Container>
 		<div class="flex items-center justify-between">
@@ -82,17 +84,20 @@
 				<Button href="#contact" size="sm" variant="cta">{$t.nav.cta}</Button>
 			</div>
 
-			<!-- Mobile Menu Button -->
-			<button
-				class="hamburger md:hidden"
-				class:active={isMenuOpen}
-				onclick={toggleMenu}
-				aria-label="Toggle menu"
-			>
-				<span class="bar"></span>
-				<span class="bar"></span>
-				<span class="bar"></span>
-			</button>
+			<!-- Mobile Language Switcher & Menu Button -->
+			<div class="flex items-center gap-3 md:hidden">
+				<LanguageSwitcher />
+				<button
+					class="hamburger"
+					class:active={isMenuOpen}
+					onclick={toggleMenu}
+					aria-label="Toggle menu"
+				>
+					<span class="bar"></span>
+					<span class="bar"></span>
+					<span class="bar"></span>
+				</button>
+			</div>
 		</div>
 
 		<!-- Mobile Navigation -->
@@ -133,8 +138,7 @@
 					class="menu-item text-sm font-medium text-text-secondary transition-colors hover:text-purple-400"
 					onclick={closeMenu}>{$t.nav.contact}</a
 				>
-				<div class="menu-item flex items-center gap-3">
-					<LanguageSwitcher />
+				<div class="menu-item">
 					<Button href="#contact" size="sm" variant="cta" onclick={closeMenu}>{$t.nav.cta}</Button>
 				</div>
 			</div>

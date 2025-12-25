@@ -360,7 +360,7 @@ export const id = {
 		services: 'Layanan',
 		serviceList: ['Web Development', 'Web Applications', 'E-Commerce', 'UI/UX Design'],
 		contact: 'Kontak',
-		copyright: 'All rights reserved.'
+		copyright: 'All rights reserved'
 	},
 	meta: {
 		title: 'Jasa Pembuatan Website Profesional',

@@ -6,44 +6,47 @@
 	import { t } from '$lib/i18n';
 
 	const technologies = [
-		'React',
+		'Laravel',
 		'Svelte',
-		'Vue.js',
-		'Next.js',
-		'Node.js',
+		'Php',
 		'TypeScript',
-		'Python',
+		'JavaScript',
+		'Bootstrap',
+		'React',
+		'NodeJs',
 		'PostgreSQL',
-		'MongoDB',
-		'AWS',
-		'Docker',
-		'Tailwind'
+		'MySQL',
+		'Tailwind',
+		'HTML',
+		'CSS',
+		'ExpressJs',
+		'NestJS'
 	];
 
 	// Warna berbeda untuk setiap teknologi berdasarkan brand identity
 	const colorMap: Record<string, { bg: string; text: string }> = {
-		'React': { bg: 'bg-cyan-500/20', text: 'text-cyan-400' },
-		'Svelte': { bg: 'bg-orange-500/20', text: 'text-orange-400' },
-		'Vue.js': { bg: 'bg-emerald-500/20', text: 'text-emerald-400' },
-		'Next.js': { bg: 'bg-white/20', text: 'text-white' },
-		'Node.js': { bg: 'bg-green-500/20', text: 'text-green-400' },
-		'TypeScript': { bg: 'bg-blue-500/20', text: 'text-blue-400' },
-		'Python': { bg: 'bg-yellow-500/20', text: 'text-yellow-400' },
-		'PostgreSQL': { bg: 'bg-indigo-500/20', text: 'text-indigo-400' },
-		'MongoDB': { bg: 'bg-green-600/20', text: 'text-green-500' },
-		'AWS': { bg: 'bg-amber-500/20', text: 'text-amber-400' },
-		'Docker': { bg: 'bg-sky-500/20', text: 'text-sky-400' },
-		'Tailwind': { bg: 'bg-teal-500/20', text: 'text-teal-400' }
+		Laravel: { bg: 'bg-red-600/10', text: 'text-red-600' },
+		Svelte: { bg: 'bg-orange-500/10', text: 'text-orange-500' },
+		Php: { bg: 'bg-purple-600/10', text: 'text-purple-600' },
+		TypeScript: { bg: 'bg-blue-600/10', text: 'text-blue-600' },
+		JavaScript: { bg: 'bg-yellow-400/10', text: 'text-yellow-400' },
+		Bootstrap: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
+		React: { bg: 'bg-cyan-500/10', text: 'text-cyan-500' },
+		NodeJs: { bg: 'bg-green-600/10', text: 'text-green-600' },
+		PostgreSQL: { bg: 'bg-blue-700/10', text: 'text-blue-700' },
+		MySQL: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
+		Tailwind: { bg: 'bg-teal-400/10', text: 'text-teal-400' },
+		HTML: { bg: 'bg-orange-400/10', text: 'text-orange-400' },
+		CSS: { bg: 'bg-blue-400/10', text: 'text-blue-400' },
+		ExpressJs: { bg: 'bg-yellow-700/10', text: 'text-yellow-400' },
+		NestJS: { bg: 'bg-red-500/10', text: 'text-red-500' }
 	};
 </script>
 
-<section id="tech-stack" class="bg-bg-secondary py-24 overflow-hidden">
+<section id="tech-stack" class="overflow-hidden bg-bg-secondary py-24">
 	<Container>
 		<ScrollReveal>
-			<SectionHeading
-				title={$t.techStack.title}
-				subtitle={$t.techStack.subtitle}
-			/>
+			<SectionHeading title={$t.techStack.title} subtitle={$t.techStack.subtitle} />
 		</ScrollReveal>
 
 		<!-- Marquee Rows -->
@@ -54,7 +57,7 @@
 					{#each technologies as tech}
 						{@const colors = colorMap[tech]}
 						<div
-							class="card-glow group flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6 mx-3"
+							class="card-glow group mx-3 flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6"
 							style="min-width: 140px;"
 						>
 							<div
@@ -62,7 +65,9 @@
 							>
 								{tech.charAt(0)}
 							</div>
-							<span class="text-sm font-medium text-text-secondary transition-colors group-hover:text-text-primary">
+							<span
+								class="text-sm font-medium text-text-secondary transition-colors group-hover:text-text-primary"
+							>
 								{tech}
 							</span>
 						</div>
@@ -76,7 +81,7 @@
 					{#each [...technologies].reverse() as tech}
 						{@const colors = colorMap[tech]}
 						<div
-							class="card-glow group flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6 mx-3"
+							class="card-glow group mx-3 flex flex-col items-center justify-center rounded-2xl bg-bg-tertiary p-6"
 							style="min-width: 140px;"
 						>
 							<div
@@ -84,7 +89,9 @@
 							>
 								{tech.charAt(0)}
 							</div>
-							<span class="text-sm font-medium text-text-secondary transition-colors group-hover:text-text-primary">
+							<span
+								class="text-sm font-medium text-text-secondary transition-colors group-hover:text-text-primary"
+							>
 								{tech}
 							</span>
 						</div>
@@ -96,16 +103,24 @@
 		<!-- Category Labels -->
 		<ScrollReveal delay={300}>
 			<div class="mt-12 flex flex-wrap justify-center gap-4">
-				<span class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary">
+				<span
+					class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary"
+				>
 					Frontend
 				</span>
-				<span class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary">
+				<span
+					class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary"
+				>
 					Backend
 				</span>
-				<span class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary">
+				<span
+					class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary"
+				>
 					Database
 				</span>
-				<span class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary">
+				<span
+					class="rounded-full border border-border-default bg-bg-elevated px-4 py-2 text-sm font-medium text-text-secondary"
+				>
 					DevOps
 				</span>
 			</div>

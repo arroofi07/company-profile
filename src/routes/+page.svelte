@@ -8,6 +8,7 @@
 	import Pricing from '$lib/components/sections/Pricing.svelte';
 	import FAQ from '$lib/components/sections/FAQ.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
+	import ScrollToTop from '$lib/components/ui/ScrollToTop.svelte';
 	import { t } from '$lib/i18n';
 </script>
 
@@ -31,3 +32,5 @@
 	<FAQ />
 	<Contact />
 </main>
+
+<ScrollToTop />
