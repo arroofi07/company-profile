@@ -338,15 +338,15 @@ export const id = {
 		description:
 			'Kami siap membantu mewujudkan visi digital Anda. Hubungi kami untuk konsultasi gratis dan diskusi project.',
 		email: 'Email',
-		phone: 'Telepon',
+		whatsapp: 'WhatsApp',
 		location: 'Lokasi',
 		form: {
 			name: 'Nama Lengkap',
 			namePlaceholder: 'Masukkan nama Anda',
 			email: 'Email',
 			emailPlaceholder: 'email@example.com',
-			phone: 'No. Telepon',
-			phonePlaceholder: '+62 xxx xxxx xxxx',
+			whatsapp: 'WhatsApp',
+			whatsappPlaceholder: '+62 857 0946 6801',
 			message: 'Pesan',
 			messagePlaceholder: 'Ceritakan tentang project Anda...',
 			submit: 'Kirim Pesan',
@@ -373,8 +373,8 @@ export const id = {
 	company: {
 		name: 'SOLARIA',
 		tagline: 'Membangun Pengalaman Digital yang Luar Biasa',
-		email: 'hello@webdevstudio.com',
-		phone: '+62 812 3456 7890',
-		address: 'Jakarta, Indonesia'
+		whatsapp: '+62 857 0946 6801',
+		email: 'solariadev7@gmail.com',
+		address: 'Padang, Indonesia'
 	}
 };

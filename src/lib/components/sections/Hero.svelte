@@ -7,6 +7,12 @@
 
 	const socialLinks = [
 		{
+			icon: MessageCircle,
+			label: 'WhatsApp',
+			href: 'https://wa.me/+6285709466801',
+			color: 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
+		},
+		{
 			icon: Send,
 			label: 'Telegram',
 			href: 'https://t.me/han_arpansi',
@@ -113,7 +119,6 @@
 				class="animate-fade-in-up relative flex items-center justify-center lg:justify-end"
 				style="animation-delay: 0.3s;"
 			>
-
 				<!-- Floating Card - Top Right -->
 				<div class="animate-float-delayed absolute top-16 -right-8 z-20 hidden lg:block">
 					<div class="glass-purple rounded-2xl p-4 shadow-xl">

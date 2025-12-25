@@ -14,7 +14,8 @@ export const en = {
 		title1: 'We Build',
 		titleHighlight: 'Digital Experiences',
 		title2: 'That Amaze',
-		subtitle: 'We help bring websites to life for a wide range of needs—personal, community, and professional. We are ready to support you from the first idea to going live',
+		subtitle:
+			'We help bring websites to life for a wide range of needs—personal, community, and professional. We are ready to support you from the first idea to going live',
 		ctaPrimary: 'Order Now',
 		ctaSecondary: 'View Portfolio',
 		stats: {
@@ -31,7 +32,8 @@ export const en = {
 			{
 				id: 'web-development',
 				title: 'Web Development',
-				description: 'Custom websites with modern technology for optimal performance and outstanding user experience.',
+				description:
+					'Custom websites with modern technology for optimal performance and outstanding user experience.',
 				icon: 'code',
 				features: ['Responsive Design', 'SEO Optimized', 'Fast Loading', 'Modern Tech Stack']
 			},
@@ -70,7 +72,8 @@ export const en = {
 			{
 				icon: 'shield',
 				title: 'Guaranteed Security',
-				description: 'Implementation of security best practices to protect your data and applications.'
+				description:
+					'Implementation of security best practices to protect your data and applications.'
 			},
 			{
 				icon: 'users',
@@ -110,7 +113,8 @@ export const en = {
 			{
 				id: 'saas-dashboard',
 				title: 'Analytics Dashboard',
-				description: 'Real-time analytics dashboard for SaaS company with interactive data visualization.',
+				description:
+					'Real-time analytics dashboard for SaaS company with interactive data visualization.',
 				image: 'dashboard',
 				tags: ['Web App', 'Svelte', 'D3.js'],
 				featured: true
@@ -126,7 +130,8 @@ export const en = {
 			{
 				id: 'healthcare-portal',
 				title: 'Healthcare Portal',
-				description: 'Digital healthcare portal with telemedicine and electronic medical records features.',
+				description:
+					'Digital healthcare portal with telemedicine and electronic medical records features.',
 				image: 'healthcare',
 				tags: ['Web App', 'Vue.js', 'Python'],
 				featured: true
@@ -193,7 +198,8 @@ export const en = {
 				role: 'CEO',
 				company: 'TechStartup Indonesia',
 				avatar: 'BS',
-				content: 'The WebDev Studio team is very professional and responsive. They successfully transformed our idea into an amazing platform. Highly recommended!',
+				content:
+					'The WebDev Studio team is very professional and responsive. They successfully transformed our idea into an amazing platform. Highly recommended!',
 				rating: 5
 			},
 			{
@@ -202,7 +208,8 @@ export const en = {
 				role: 'Marketing Director',
 				company: 'Fashion Brand Co.',
 				avatar: 'SW',
-				content: 'The e-commerce website they built increased our sales by 200%. The design is modern and user-friendly. Thank you team!',
+				content:
+					'The e-commerce website they built increased our sales by 200%. The design is modern and user-friendly. Thank you team!',
 				rating: 5
 			},
 			{
@@ -211,7 +218,8 @@ export const en = {
 				role: 'Founder',
 				company: 'EduTech Platform',
 				avatar: 'AP',
-				content: 'A very pleasant collaboration. They understand our needs and provide the right solutions. After-sales support is also excellent.',
+				content:
+					'A very pleasant collaboration. They understand our needs and provide the right solutions. After-sales support is also excellent.',
 				rating: 5
 			}
 		]
@@ -284,50 +292,57 @@ export const en = {
 			{
 				id: '1',
 				question: 'How long does it take to build a website?',
-				answer: 'The timeline varies depending on project complexity. A standard website usually takes 2-4 weeks, while web applications can take 1-3 months. We will provide a clear timeline after discussing your requirements.'
+				answer:
+					'The timeline varies depending on project complexity. A standard website usually takes 2-4 weeks, while web applications can take 1-3 months. We will provide a clear timeline after discussing your requirements.'
 			},
 			{
 				id: '2',
 				question: 'Is there a maintenance fee after the website is completed?',
-				answer: 'Each package includes a free support period (30-90 days or 12 months depending on the package). After that, we offer monthly maintenance packages that can be customized to your needs.'
+				answer:
+					'Each package includes a free support period (30-90 days or 12 months depending on the package). After that, we offer monthly maintenance packages that can be customized to your needs.'
 			},
 			{
 				id: '3',
 				question: 'What technology is used for development?',
-				answer: 'We use modern technologies such as React, Svelte, Next.js, Node.js, and various other frameworks. Technology selection will be tailored to project needs for optimal results.'
+				answer:
+					'We use modern technologies such as React, Svelte, Next.js, Node.js, and various other frameworks. Technology selection will be tailored to project needs for optimal results.'
 			},
 			{
 				id: '4',
 				question: 'What is the payment process?',
-				answer: 'Payment is made in 2-3 stages: 50% down payment at the start, 25% at 50% progress, and final payment after project completion. We accept bank transfers and various digital payment methods.'
+				answer:
+					'Payment is made in 2-3 stages: 50% down payment at the start, 25% at 50% progress, and final payment after project completion. We accept bank transfers and various digital payment methods.'
 			},
 			{
 				id: '5',
 				question: 'Can I request revisions after the project is completed?',
-				answer: 'Of course! Each package includes revisions (number depends on the chosen package). Revisions beyond the quota or after the support period can be done with additional fees.'
+				answer:
+					'Of course! Each package includes revisions (number depends on the chosen package). Revisions beyond the quota or after the support period can be done with additional fees.'
 			},
 			{
 				id: '6',
 				question: 'Do you provide hosting and domain?',
-				answer: 'We can help set up hosting and domain at a separate cost. We can also help deploy to various cloud platforms like Vercel, AWS, or your preferred hosting.'
+				answer:
+					'We can help set up hosting and domain at a separate cost. We can also help deploy to various cloud platforms like Vercel, AWS, or your preferred hosting.'
 			}
 		]
 	},
 	contact: {
 		title: 'Contact Us',
-		subtitle: 'Ready to start your project? Let\'s discuss your needs',
-		heading: 'Let\'s Work Together',
-		description: 'We are ready to help realize your digital vision. Contact us for a free consultation and project discussion.',
+		subtitle: "Ready to start your project? Let's discuss your needs",
+		heading: "Let's Work Together",
+		description:
+			'We are ready to help realize your digital vision. Contact us for a free consultation and project discussion.',
 		email: 'Email',
-		phone: 'Phone',
+		whatsapp: 'WhatsApp',
 		location: 'Location',
 		form: {
 			name: 'Full Name',
 			namePlaceholder: 'Enter your name',
 			email: 'Email',
 			emailPlaceholder: 'email@example.com',
-			phone: 'Phone Number',
-			phonePlaceholder: '+62 xxx xxxx xxxx',
+			whatsapp: 'WhatsApp',
+			whatsappPlaceholder: '+62 857 0946 6801',
 			message: 'Message',
 			messagePlaceholder: 'Tell us about your project...',
 			submit: 'Send Message',
@@ -345,15 +360,17 @@ export const en = {
 	},
 	meta: {
 		title: 'Professional Website Development Services',
-		description: 'WebDev Studio is a professional web development agency providing website development, web application, e-commerce, and UI/UX design services.',
-		keywords: 'web development, website development services, web design, e-commerce, UI UX design, Jakarta, Indonesia',
+		description:
+			'WebDev Studio is a professional web development agency providing website development, web application, e-commerce, and UI/UX design services.',
+		keywords:
+			'web development, website development services, web design, e-commerce, UI UX design, Jakarta, Indonesia',
 		ogDescription: 'Building extraordinary digital experiences. From concept to launch.'
 	},
 	company: {
 		name: 'SOLARIA',
 		tagline: 'Building Extraordinary Digital Experiences',
-		email: 'hello@webdevstudio.com',
-		phone: '+62 812 3456 7890',
-		address: 'Jakarta, Indonesia'
+		whatsapp: '+62 857 0946 6801',
+		email: 'solariadev7@gmail.com',
+		address: 'Padang, Indonesia'
 	}
 };

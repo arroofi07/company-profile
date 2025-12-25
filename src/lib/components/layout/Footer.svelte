@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Instagram, Linkedin, Github, Twitter, Mail, Phone, MapPin } from 'lucide-svelte';
+	import { Instagram, MessageCircle, Send, Mail, MapPin } from 'lucide-svelte';
 	import Container from '$lib/components/ui/Container.svelte';
 	import { t } from '$lib/i18n';
 	import logo from '$lib/assets/solaria.png';
@@ -13,7 +13,7 @@
 			<!-- Company Info -->
 			<div class="lg:col-span-1">
 				<a href="#hero" class="flex items-center gap-3 text-2xl font-bold">
-					<img src={logo} alt="Solaria Logo" class="h-14 w-20" />
+					<img src={logo} alt="Solaria Logo" class="h-10 w-auto" />
 					<span class="gradient-text">{$t.company.name}</span>
 				</a>
 				<p class="mt-4 text-text-secondary">
@@ -21,32 +21,32 @@
 				</p>
 				<div class="mt-6 flex gap-4">
 					<a
+						href="https://wa.me/+6285709466801"
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-green-500/10 text-green-400 transition-all hover:bg-green-500/20"
+						aria-label="WhatsApp"
+					>
+						<MessageCircle size={18} />
+					</a>
+					<a
+						href="https://t.me/han_arpansi"
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 transition-all hover:bg-blue-500/20"
+						aria-label="Telegram"
+					>
+						<Send size={18} />
+					</a>
+					<a
 						href="https://instagram.com"
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-text-muted transition-all hover:bg-purple-500/20 hover:text-purple-400"
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-pink-500/10 text-pink-400 transition-all hover:bg-pink-500/20"
 						aria-label="Instagram"
 					>
 						<Instagram size={18} />
 					</a>
 					<a
-						href="https://linkedin.com"
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-text-muted transition-all hover:bg-purple-500/20 hover:text-purple-400"
-						aria-label="LinkedIn"
+						href="mailto:solariadev7@gmail.com"
+						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-purple-400 transition-all hover:bg-purple-500/20"
+						aria-label="Email"
 					>
-						<Linkedin size={18} />
-					</a>
-					<a
-						href="https://github.com"
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-text-muted transition-all hover:bg-purple-500/20 hover:text-purple-400"
-						aria-label="GitHub"
-					>
-						<Github size={18} />
-					</a>
-					<a
-						href="https://twitter.com"
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-text-muted transition-all hover:bg-purple-500/20 hover:text-purple-400"
-						aria-label="Twitter"
-					>
-						<Twitter size={18} />
+						<Mail size={18} />
 					</a>
 				</div>
 			</div>
@@ -113,12 +113,6 @@
 						<Mail size={18} class="text-purple-400" />
 						<a href="mailto:{$t.company.email}" class="hover:text-purple-400 transition-colors">
 							{$t.company.email}
-						</a>
-					</li>
-					<li class="flex items-center gap-3 text-text-secondary">
-						<Phone size={18} class="text-purple-400" />
-						<a href="tel:{$t.company.phone}" class="hover:text-purple-400 transition-colors">
-							{$t.company.phone}
 						</a>
 					</li>
 					<li class="flex items-center gap-3 text-text-secondary">
