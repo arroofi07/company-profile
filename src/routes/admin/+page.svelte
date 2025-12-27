@@ -1,0 +1,15 @@
+<script lang="ts">
+	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
+
+	onMount(() => {
+		goto('/admin/portfolio');
+	});
+</script>
+
+<div class="flex items-center justify-center min-h-[50vh]">
+	<div class="text-center">
+		<div class="w-8 h-8 border-2 border-purple-500/30 border-t-purple-500 rounded-full animate-spin mx-auto mb-4"></div>
+		<p class="text-text-secondary">Redirecting...</p>
+	</div>
+</div>

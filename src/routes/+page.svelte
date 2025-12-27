@@ -10,6 +10,9 @@
 	import Contact from '$lib/components/sections/Contact.svelte';
 	import ScrollToTop from '$lib/components/ui/ScrollToTop.svelte';
 	import { t } from '$lib/i18n';
+	import type { PageData } from './$types';
+
+	let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>
@@ -25,7 +28,7 @@
 	<Hero />
 	<Services />
 	<WhyChooseUs />
-	<Portfolio />
+	<Portfolio portfolioItems={data.portfoliosRaw} />
 	<Process />
 	<TechStack />
 	<Pricing />

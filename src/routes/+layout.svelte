@@ -4,8 +4,11 @@
 	import Navbar from '$lib/components/layout/Navbar.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import BubbleBackground from '$lib/components/ui/BubbleBackground.svelte';
+	import { page } from '$app/stores';
 
 	let { children } = $props();
+
+	let isAdmin = $derived($page.url.pathname.startsWith('/admin'));
 </script>
 
 <svelte:head>
@@ -18,7 +21,13 @@
 	/>
 </svelte:head>
 
-<BubbleBackground />
-<Navbar />
+{#if !isAdmin}
+	<BubbleBackground />
+	<Navbar />
+{/if}
+
 {@render children()}
-<Footer />
+
+{#if !isAdmin}
+	<Footer />
+{/if}

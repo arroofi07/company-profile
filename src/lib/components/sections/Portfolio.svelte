@@ -3,17 +3,29 @@
 	import Container from '$lib/components/ui/Container.svelte';
 	import SectionHeading from '$lib/components/ui/SectionHeading.svelte';
 	import ScrollReveal from '$lib/components/ui/ScrollReveal.svelte';
-	import { t } from '$lib/i18n';
+	import { t, currentLocale } from '$lib/i18n';
+	import type { PortfolioProject } from '$lib/supabase/types';
 
-	// Neutral gradient colors for placeholder images
-	const gradients: Record<string, string> = {
-		fashion: 'from-neutral-700 to-neutral-900',
-		dashboard: 'from-neutral-600 to-neutral-800',
-		restaurant: 'from-neutral-700 to-neutral-800',
-		healthcare: 'from-neutral-600 to-neutral-900',
-		education: 'from-neutral-700 to-neutral-900',
-		fintech: 'from-neutral-600 to-neutral-800'
-	};
+	interface Props {
+		portfolioItems?: PortfolioProject[];
+	}
+
+	let { portfolioItems = [] }: Props = $props();
+
+	// Transform Supabase data to display format based on current locale
+	let displayItems = $derived(
+		portfolioItems.length > 0
+			? portfolioItems.map((item) => ({
+					id: item.slug,
+					title: $currentLocale === 'id' ? item.title_id : item.title_en,
+					description: $currentLocale === 'id' ? item.description_id : item.description_en,
+					image: item.image_url || item.slug,
+					tags: item.tags,
+					link: item.link,
+					featured: item.featured
+				}))
+			: $t.portfolio.items
+	);
 
 	let currentIndex = $state(0);
 	let itemsPerView = $state(1);
@@ -31,7 +43,7 @@
 				itemsPerView = 1;
 			}
 			// Reset index if it exceeds new maxIndex
-			const newMaxIndex = Math.max(0, $t.portfolio.items.length - itemsPerView);
+			const newMaxIndex = Math.max(0, displayItems.length - itemsPerView);
 			if (currentIndex > newMaxIndex) {
 				currentIndex = newMaxIndex;
 			}
@@ -44,7 +56,7 @@
 	});
 
 	// Reactive to get total items
-	let totalItems = $derived($t.portfolio.items.length);
+	let totalItems = $derived(displayItems.length);
 	let maxIndex = $derived(Math.max(0, totalItems - itemsPerView));
 
 	// Calculate slide width percentage
@@ -96,7 +108,7 @@
 						class="flex transition-transform duration-500 ease-out"
 						style="transform: translateX(-{currentIndex * slideWidth}%)"
 					>
-						{#each $t.portfolio.items as project, i}
+						{#each displayItems as project, i}
 							<div
 								class="shrink-0 px-2 md:px-3"
 								style="width: {slideWidth}%"
@@ -106,10 +118,17 @@
 								>
 									<!-- Image Container -->
 									<div class="relative aspect-[4/3] overflow-hidden">
-										<div
-											class="absolute inset-0 bg-gradient-to-br {gradients[project.image] ||
-												'from-neutral-700 to-neutral-900'}"
-										></div>
+										{#if project.image?.startsWith('http')}
+											<img
+												src={project.image}
+												alt={project.title}
+												class="absolute inset-0 w-full h-full object-cover"
+											/>
+										{:else}
+											<div
+												class="absolute inset-0 bg-gradient-to-br from-neutral-700 to-neutral-900"
+											></div>
+										{/if}
 										<!-- Pattern overlay -->
 										<div
 											class="absolute inset-0 opacity-10"

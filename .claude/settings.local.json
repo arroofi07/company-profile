@@ -10,7 +10,9 @@
       "Bash(powershell -Command:*)",
       "Bash(timeout:*)",
       "Bash(dir:*)",
-      "Bash(del \"r:\\\\company-profile\\\\my-company\\\\src\\\\lib\\\\components\\\\ui\\\\WaveDivider.svelte\")"
+      "Bash(del \"r:\\\\company-profile\\\\my-company\\\\src\\\\lib\\\\components\\\\ui\\\\WaveDivider.svelte\")",
+      "Bash(cat:*)",
+      "Bash(ls:*)"
     ]
   }
 }
