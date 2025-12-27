@@ -28,8 +28,8 @@
 </script>
 
 <nav
-	class="glass-purple fixed top-0 right-0 left-0 z-50 transition-all duration-300
-	{scrolled ? 'border-b border-purple-500/20 py-3' : 'py-5'}"
+	class="bg-bg-primary border border-purple-500/20 fixed top-0 right-0 left-0 z-50 transition-all duration-300
+	{scrolled ? 'py-3' : 'py-5'}"
 >
 	<Container>
 		<div class="flex items-center justify-between">

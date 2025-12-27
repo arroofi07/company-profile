@@ -14,22 +14,50 @@
 
 	let isSubmitting = $state(false);
 	let submitted = $state(false);
+	let errorMessage = $state('');
+
+	// Web3Forms Access Key - dapatkan dari https://web3forms.com/
+	const WEB3FORMS_ACCESS_KEY = '9a340f55-ec11-4e26-9c41-9f6a8c4082e6';
 
 	async function handleSubmit(e: Event) {
 		e.preventDefault();
 		isSubmitting = true;
+		errorMessage = '';
 
-		// Simulate form submission
-		await new Promise((resolve) => setTimeout(resolve, 1000));
+		try {
+			const response = await fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json'
+				},
+				body: JSON.stringify({
+					access_key: WEB3FORMS_ACCESS_KEY,
+					name: formData.name,
+					email: formData.email,
+					whatsapp: formData.whatsapp,
+					message: formData.message,
+					subject: `Pesan baru dari ${formData.name} - Website Contact Form`
+				})
+			});
 
-		isSubmitting = false;
-		submitted = true;
+			const result = await response.json();
 
-		// Reset after 3 seconds
-		setTimeout(() => {
-			submitted = false;
-			formData = { name: '', email: '', whatsapp: '', message: '' };
-		}, 3000);
+			if (result.success) {
+				submitted = true;
+				// Reset after 3 seconds
+				setTimeout(() => {
+					submitted = false;
+					formData = { name: '', email: '', whatsapp: '', message: '' };
+				}, 3000);
+			} else {
+				errorMessage = 'Gagal mengirim pesan. Silakan coba lagi.';
+			}
+		} catch {
+			errorMessage = 'Terjadi kesalahan. Silakan coba lagi.';
+		} finally {
+			isSubmitting = false;
+		}
 	}
 </script>
 
@@ -139,6 +167,13 @@
 						</div>
 					{:else}
 						<form onsubmit={handleSubmit} class="relative space-y-6">
+							{#if errorMessage}
+								<div
+									class="rounded-xl border border-red-500/30 bg-red-500/10 p-4 text-center text-red-400"
+								>
+									{errorMessage}
+								</div>
+							{/if}
 							<div>
 								<label for="name" class="mb-2 block text-sm font-semibold text-text-primary">
 									{$t.contact.form.name}
