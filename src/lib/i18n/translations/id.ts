@@ -387,10 +387,11 @@ export const id = {
 	meta: {
 		title: 'Jasa Pembuatan Website Profesional',
 		description:
-			'WebDev Studio adalah agensi web development profesional yang menyediakan jasa pembuatan website, web application, e-commerce, dan UI/UX design.',
+			'SOLARIA DEV adalah agensi web development profesional di Indonesia yang menyediakan jasa pembuatan website, web application, e-commerce, dan UI/UX design dengan teknologi modern.',
 		keywords:
-			'web development, jasa pembuatan website, web design, e-commerce, UI UX design, Jakarta, Indonesia',
-		ogDescription: 'Membangun pengalaman digital yang luar biasa. Dari konsep hingga peluncuran.'
+			'web development, jasa pembuatan website, web design, e-commerce, UI UX design, Padang, Indonesia, SOLARIA DEV, website profesional',
+		ogDescription: 'Membangun pengalaman digital yang luar biasa. Dari konsep hingga peluncuran.',
+		siteUrl: 'https://solaria.icu'
 	},
 	company: {
 		name: 'SOLARIA DEV',

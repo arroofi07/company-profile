@@ -1,3 +1,12 @@
-# allow crawling everything by default
+# Robots.txt for SOLARIA DEV
+# https://solaria.icu
+
 User-agent: *
-Disallow:
+Allow: /
+Disallow: /admin/
+
+# Sitemap
+Sitemap: https://solaria.icu/sitemap.xml
+
+# Crawl-delay (optional, for polite crawlers)
+Crawl-delay: 1

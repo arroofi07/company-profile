@@ -9,20 +9,15 @@
 	import FAQ from '$lib/components/sections/FAQ.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
 	import ScrollToTop from '$lib/components/ui/ScrollToTop.svelte';
-	import { t } from '$lib/i18n';
+	import SEO from '$lib/components/SEO.svelte';
+	import JsonLd from '$lib/components/JsonLd.svelte';
 	import type { PageData } from './$types';
 
 	let { data }: { data: PageData } = $props();
 </script>
 
-<svelte:head>
-	<title>{$t.company.name} - {$t.meta.title}</title>
-	<meta name="description" content={$t.meta.description} />
-	<meta name="keywords" content={$t.meta.keywords} />
-	<meta property="og:title" content="{$t.company.name} - {$t.meta.title}" />
-	<meta property="og:description" content={$t.meta.ogDescription} />
-	<meta property="og:type" content="website" />
-</svelte:head>
+<SEO />
+<JsonLd />
 
 <main class="relative z-10">
 	<Hero />
