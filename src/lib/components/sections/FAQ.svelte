@@ -11,41 +11,41 @@
 	}
 </script>
 
-<section id="faq" class="py-24 relative overflow-hidden bg-bg-primary">
+<section id="faq" class="relative overflow-hidden bg-bg-primary py-16 md:py-24">
 	<!-- Background Orb -->
-	<div class="absolute right-0 top-1/3 h-96 w-96 orb-glow opacity-20"></div>
+	<div class="orb-glow absolute top-1/3 right-0 h-96 w-96 opacity-20"></div>
 
 	<Container>
 		<!-- Section Header -->
 		<ScrollReveal>
-			<div class="mb-16 text-center">
-				<h2 class="text-3xl font-bold text-text-primary sm:text-4xl md:text-5xl">
+			<div class="mb-10 text-center md:mb-16">
+				<h2 class="text-2xl font-bold text-text-primary sm:text-4xl md:text-5xl">
 					Frequently Asked <span class="text-elegant gradient-text">Questions</span>
 				</h2>
-				<p class="mx-auto mt-4 max-w-2xl text-lg text-text-secondary">
+				<p class="mx-auto mt-3 max-w-2xl text-base text-text-secondary md:mt-4 md:text-lg">
 					{$t.faq.subtitle}
 				</p>
 			</div>
 		</ScrollReveal>
 
-		<div class="max-w-3xl mx-auto">
+		<div class="mx-auto max-w-3xl">
 			<!-- FAQ Items -->
 			<div class="divide-y divide-purple-500/20">
 				{#each $t.faq.items as item, i}
 					<ScrollReveal delay={i * 50}>
 						<div class="group">
 							<button
-								class="flex w-full items-center justify-between py-6 text-left"
+								class="flex w-full items-center justify-between py-4 text-left md:py-6"
 								onclick={() => toggleFaq(item.id)}
 								aria-expanded={openId === item.id}
 							>
 								<span
-									class="pr-6 text-lg font-medium text-text-primary group-hover:text-purple-400 transition-colors"
+									class="pr-4 text-base font-medium text-text-primary transition-colors group-hover:text-purple-400 md:pr-6 md:text-lg"
 								>
 									{item.question}
 								</span>
 								<div
-									class="shrink-0 flex h-8 w-8 items-center justify-center rounded-full transition-all duration-300
+									class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-all duration-300
 									{openId === item.id ? 'bg-purple-500' : 'bg-purple-500/20'}"
 								>
 									{#if openId === item.id}
@@ -63,7 +63,7 @@
 							>
 								<div class="overflow-hidden">
 									<div class="pb-6">
-										<p class="text-text-secondary leading-relaxed">
+										<p class="leading-relaxed text-text-secondary">
 											{item.answer}
 										</p>
 									</div>

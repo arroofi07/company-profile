@@ -13,16 +13,15 @@
 		rocket: Rocket
 	};
 
-	// Warna untuk setiap step
 	const colorMap: Record<number, { bg: string; icon: string; ring: string }> = {
-		0: { bg: 'bg-red-500/20', icon: 'text-red-400', ring: 'ring-red-500/30' }, // Konsultasi - Merah
-		1: { bg: 'bg-yellow-500/20', icon: 'text-yellow-400', ring: 'ring-yellow-500/30' }, // Desain - Kuning
-		2: { bg: 'bg-green-500/20', icon: 'text-green-400', ring: 'ring-green-500/30' }, // Development - Hijau
-		3: { bg: 'bg-blue-500/20', icon: 'text-blue-400', ring: 'ring-blue-500/30' } // Launch - Biru
+		0: { bg: 'bg-red-500/20', icon: 'text-red-400', ring: 'ring-red-500/30' },
+		1: { bg: 'bg-yellow-500/20', icon: 'text-yellow-400', ring: 'ring-yellow-500/30' },
+		2: { bg: 'bg-green-500/20', icon: 'text-green-400', ring: 'ring-green-500/30' },
+		3: { bg: 'bg-blue-500/20', icon: 'text-blue-400', ring: 'ring-blue-500/30' }
 	};
 </script>
 
-<section id="process" class="py-24 overflow-hidden bg-bg-tertiary">
+<section id="process" class="overflow-hidden bg-bg-tertiary py-16 md:py-24">
 	<Container>
 		<ScrollReveal>
 			<SectionHeading title={$t.process.title} subtitle={$t.process.subtitle} />
@@ -32,7 +31,7 @@
 		<div class="hidden lg:block">
 			<div class="relative">
 				<!-- Connection Line -->
-				<div class="absolute left-0 right-0 top-16 h-px bg-border-default rounded-full"></div>
+				<div class="absolute top-16 right-0 left-0 h-px rounded-full bg-border-default"></div>
 
 				<div class="grid grid-cols-4 gap-8">
 					{#each $t.process.steps as step, i}
@@ -58,7 +57,7 @@
 										</div>
 										<!-- Step number badge -->
 										<div
-											class="absolute -right-2 -top-2 flex h-10 w-10 items-center justify-center rounded-full bg-bg-primary border border-border-default text-lg font-bold text-text-primary"
+											class="absolute -top-2 -right-2 flex h-10 w-10 items-center justify-center rounded-full border border-border-default bg-bg-primary text-lg font-bold text-text-primary"
 										>
 											{step.step}
 										</div>
@@ -72,7 +71,7 @@
 									<h3 class="mb-3 text-xl font-bold text-text-primary">
 										{step.title}
 									</h3>
-									<p class="text-text-secondary leading-relaxed">
+									<p class="leading-relaxed text-text-secondary">
 										{step.description}
 									</p>
 								</div>
@@ -83,41 +82,41 @@
 			</div>
 		</div>
 
-		<!-- Mobile/Tablet Timeline -->
+		<!-- Mobile/Tablet Timeline - improved layout -->
 		<div class="lg:hidden">
 			<div class="relative">
-				<!-- Vertical Line -->
-				<div class="absolute left-8 top-0 bottom-0 w-px bg-border-default"></div>
+				<!-- Vertical Line - aligned to center of circles -->
+				<div class="absolute top-0 bottom-0 left-[22px] w-px bg-border-default"></div>
 
-				<div class="space-y-8">
+				<div class="space-y-6">
 					{#each $t.process.steps as step, i}
 						{@const Icon = iconMap[step.icon]}
 						{@const colors = colorMap[i] || colorMap[0]}
 
 						<ScrollReveal direction={i % 2 === 0 ? 'left' : 'right'} delay={i * 100}>
-							<div class="relative flex gap-6 pl-4">
+							<div class="relative flex gap-4">
 								<!-- Step Circle -->
 								<div class="relative shrink-0">
 									<div
-										class="card-glow flex h-16 w-16 items-center justify-center rounded-full {colors.bg} ring-4 ring-bg-primary"
+										class="card-glow flex h-11 w-11 items-center justify-center rounded-full {colors.bg} ring-4 ring-bg-tertiary"
 									>
 										{#if Icon}
-											<Icon size={24} class={colors.icon} />
+											<Icon size={18} class={colors.icon} />
 										{/if}
 									</div>
 									<div
-										class="absolute -top-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full bg-bg-primary border border-border-default text-sm font-bold text-text-primary"
+										class="absolute -top-1 -right-1 flex h-5 w-5 items-center justify-center rounded-full border border-border-default bg-bg-primary text-xs font-bold text-text-primary"
 									>
 										{step.step}
 									</div>
 								</div>
 
 								<!-- Content -->
-								<div class="card-glow flex-1 rounded-xl bg-bg-elevated p-5">
-									<h3 class="mb-2 text-lg font-bold text-text-primary">
+								<div class="card-glow flex-1 rounded-xl bg-bg-elevated p-4">
+									<h3 class="mb-1.5 text-base font-bold text-text-primary">
 										{step.title}
 									</h3>
-									<p class="text-sm text-text-secondary">
+									<p class="text-xs leading-relaxed text-text-secondary">
 										{step.description}
 									</p>
 								</div>
@@ -130,7 +129,7 @@
 
 		<!-- CTA -->
 		<ScrollReveal delay={400}>
-			<div class="mt-16 text-center">
+			<div class="mt-12 text-center md:mt-16">
 				<Button href="#contact" size="lg">
 					Mulai Project Anda
 					<ArrowRight size={20} class="ml-2" />
