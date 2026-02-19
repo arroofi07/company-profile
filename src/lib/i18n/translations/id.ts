@@ -325,13 +325,13 @@ export const id = {
 				id: '2',
 				question: 'Apakah ada biaya maintenance setelah website selesai?',
 				answer:
-					'Setiap paket sudah termasuk periode support gratis (30-90 hari atau 12 bulan tergantung paket). Setelah itu, kami menawarkan paket maintenance bulanan yang bisa disesuaikan dengan kebutuhan Anda.'
+					'Setiap paket sudah termasuk periode support gratis (6 bulan). Setelah itu, kami menawarkan paket maintenance bulanan yang bisa disesuaikan dengan kebutuhan Anda.'
 			},
 			{
 				id: '3',
 				question: 'Teknologi apa yang digunakan untuk development?',
 				answer:
-					'Kami menggunakan teknologi modern seperti React, Svelte, Next.js, Node.js, dan berbagai framework lainnya. Pemilihan teknologi akan disesuaikan dengan kebutuhan project untuk hasil yang optimal.'
+					'Kami menggunakan teknologi modern seperti Svelte, Next.js, Node.js, Golang, Laravel dan berbagai framework lainnya. Pemilihan teknologi akan disesuaikan dengan kebutuhan project untuk hasil yang optimal.'
 			},
 			{
 				id: '4',

@@ -5,14 +5,15 @@
 	import Marquee from '$lib/components/ui/Marquee.svelte';
 	import { t } from '$lib/i18n';
 
-	const technologies = ['Golang', 'Svelte', 'Laravel', 'React'];
+	const technologies = ['Golang', 'Svelte', 'Laravel', 'React', 'NestJS'];
 
 	// Warna berbeda untuk setiap teknologi berdasarkan brand identity
 	const colorMap: Record<string, { bg: string; text: string }> = {
 		Golang: { bg: 'bg-red-600/10', text: 'text-red-600' },
 		Svelte: { bg: 'bg-orange-500/10', text: 'text-orange-500' },
 		React: { bg: 'bg-cyan-500/10', text: 'text-cyan-500' },
-		Laravel: { bg: 'bg-purple-600/10', text: 'text-purple-600' }
+		Laravel: { bg: 'bg-purple-600/10', text: 'text-purple-600' },
+		NestJS: { bg: 'bg-green-600/10', text: 'text-green-600' }
 	};
 </script>
 
