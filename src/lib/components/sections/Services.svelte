@@ -48,12 +48,12 @@
 		</ScrollReveal>
 
 		<!-- Grid Layout - 2 columns on mobile, 4 on desktop -->
-		<div class="grid grid-cols-2 gap-4 md:gap-6 lg:grid-cols-4">
+		<div class="grid grid-cols-2 items-stretch gap-4 md:gap-6 lg:grid-cols-4">
 			{#each $t.services.items as service, i}
 				{@const Icon = iconMap[service.icon]}
 				{@const colors = colorMap[i] || colorMap[0]}
 
-				<ScrollReveal delay={i * 80}>
+				<ScrollReveal delay={i * 80} class="h-full">
 					<div
 						class="card-glow group glass-purple relative h-full overflow-hidden rounded-2xl p-4 transition-all duration-300 md:rounded-3xl md:p-6"
 					>

@@ -4,6 +4,23 @@
 	import ScrollReveal from '$lib/components/ui/ScrollReveal.svelte';
 	import Button from '$lib/components/ui/Button.svelte';
 	import { t } from '$lib/i18n';
+	import { onMount } from 'svelte';
+
+	let scrollContainer: HTMLDivElement;
+	let activeIndex = $state(0);
+
+	function onScroll() {
+		if (!scrollContainer) return;
+		const { scrollLeft, scrollWidth, clientWidth } = scrollContainer;
+		const cardWidth = scrollWidth / $t.pricing.plans.length;
+		activeIndex = Math.round(scrollLeft / cardWidth);
+	}
+
+	function scrollToIndex(index: number) {
+		if (!scrollContainer) return;
+		const cardWidth = scrollContainer.scrollWidth / $t.pricing.plans.length;
+		scrollContainer.scrollTo({ left: cardWidth * index, behavior: 'smooth' });
+	}
 
 	const iconMap: Record<string, typeof FileText> = {
 		FileText,
@@ -62,7 +79,14 @@
 
 		<!-- Mobile: Horizontal scroll carousel -->
 		<div class="md:hidden">
-			<div class="price-scroll-container">
+			<!-- Swipe hint label + icon (shown before first scroll) -->
+			<div class="swipe-hint" class:hidden-hint={activeIndex > 0}>
+				<span class="swipe-hand">👆</span>
+				<span class="swipe-label">Geser untuk lihat paket lainnya</span>
+				<span class="swipe-arrows">→</span>
+			</div>
+
+			<div class="price-scroll-container" bind:this={scrollContainer} onscroll={onScroll}>
 				{#each $t.pricing.plans as plan, i}
 					<div class="price-card-mobile">
 						<div
@@ -137,8 +161,20 @@
 					</div>
 				{/each}
 			</div>
-			<!-- Scroll hint -->
-			<p class="mt-4 text-center text-xs text-text-muted">← Geser untuk lihat semua paket →</p>
+
+			<!-- Dot indicators -->
+			<div class="mt-5 flex items-center justify-center gap-2">
+				{#each $t.pricing.plans as _, i}
+					<button
+						class="dot-indicator {i === activeIndex ? 'dot-active' : 'dot-inactive'}"
+						onclick={() => scrollToIndex(i)}
+						aria-label="Paket {i + 1}"
+					></button>
+				{/each}
+			</div>
+			<p class="mt-2 text-center text-xs text-text-muted">
+				{activeIndex + 1} / {$t.pricing.plans.length} paket
+			</p>
 		</div>
 
 		<!-- Desktop: standard grid -->
@@ -219,13 +255,14 @@
 </section>
 
 <style>
+	/* Scroll container */
 	.price-scroll-container {
 		display: flex;
 		gap: 12px;
 		overflow-x: auto;
 		scroll-snap-type: x mandatory;
 		-webkit-overflow-scrolling: touch;
-		padding: 16px 4px 8px;
+		padding: 16px 16px 8px;
 		scrollbar-width: none;
 	}
 
@@ -235,8 +272,95 @@
 
 	.price-card-mobile {
 		scroll-snap-align: center;
-		width: 78vw;
-		max-width: 280px;
+		width: 80vw;
+		max-width: 290px;
 		flex-shrink: 0;
+	}
+
+	/* Swipe hint */
+	.swipe-hint {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 6px;
+		margin-bottom: 10px;
+		opacity: 1;
+		transition: opacity 0.4s ease;
+	}
+
+	.swipe-hint.hidden-hint {
+		opacity: 0;
+		pointer-events: none;
+		height: 0;
+		margin: 0;
+		overflow: hidden;
+	}
+
+	.swipe-hand {
+		font-size: 18px;
+		display: inline-block;
+		animation: swipe-bounce 1.4s ease-in-out infinite;
+	}
+
+	.swipe-arrows {
+		font-size: 14px;
+		color: #a78bfa;
+		animation: swipe-arrow 1.4s ease-in-out infinite;
+		letter-spacing: -2px;
+	}
+
+	.swipe-label {
+		font-size: 0.75rem;
+		color: #8b7aa8;
+		font-weight: 500;
+	}
+
+	@keyframes swipe-bounce {
+		0%,
+		100% {
+			transform: translateX(0);
+		}
+		40% {
+			transform: translateX(8px);
+		}
+		60% {
+			transform: translateX(4px);
+		}
+	}
+
+	@keyframes swipe-arrow {
+		0%,
+		100% {
+			opacity: 0.4;
+			transform: translateX(0);
+		}
+		50% {
+			opacity: 1;
+			transform: translateX(4px);
+		}
+	}
+
+	/* Dot indicators */
+	.dot-indicator {
+		border: none;
+		border-radius: 9999px;
+		cursor: pointer;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		height: 8px;
+	}
+
+	.dot-active {
+		width: 28px;
+		background: #a78bfa;
+		box-shadow: 0 0 8px rgba(167, 139, 250, 0.5);
+	}
+
+	.dot-inactive {
+		width: 8px;
+		background: rgba(139, 92, 246, 0.25);
+	}
+
+	.dot-inactive:hover {
+		background: rgba(167, 139, 250, 0.5);
 	}
 </style>

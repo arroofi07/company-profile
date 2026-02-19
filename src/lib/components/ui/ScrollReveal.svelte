@@ -14,7 +14,7 @@
 		children,
 		direction = 'up',
 		delay = 0,
-		threshold = 0.1,
+		threshold = 0.05,
 		class: className = ''
 	}: Props = $props();
 
@@ -29,6 +29,17 @@
 	};
 
 	onMount(() => {
+		if (!element) return;
+
+		// Cek langsung apakah elemen sudah di dalam viewport saat mount
+		const rect = element.getBoundingClientRect();
+		if (rect.top < window.innerHeight && rect.bottom > 0) {
+			setTimeout(() => {
+				isVisible = true;
+			}, delay);
+			return;
+		}
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
@@ -38,14 +49,23 @@
 					}
 				});
 			},
-			{ threshold }
+			{
+				threshold: 0,
+				rootMargin: '0px 0px -30px 0px'
+			}
 		);
 
-		if (element) {
-			observer.observe(element);
-		}
+		observer.observe(element);
 
-		return () => observer.disconnect();
+		// Fallback: paksa tampil setelah 1.5s jika observer tidak menjangkau
+		const fallback = setTimeout(() => {
+			if (!isVisible) isVisible = true;
+		}, 1500);
+
+		return () => {
+			observer.disconnect();
+			clearTimeout(fallback);
+		};
 	});
 </script>
 
