@@ -5,6 +5,8 @@
 		variant?: 'primary' | 'secondary' | 'outline' | 'ghost' | 'cta';
 		size?: 'sm' | 'md' | 'lg';
 		href?: string;
+		target?: string;
+		rel?: string;
 		disabled?: boolean;
 		class?: string;
 		children: Snippet;
@@ -16,6 +18,8 @@
 		variant = 'primary',
 		size = 'md',
 		href,
+		target,
+		rel,
 		disabled = false,
 		class: className = '',
 		children,
@@ -29,8 +33,7 @@
 	const variants = {
 		primary:
 			'bg-purple-500 text-white hover:bg-purple-400 hover:shadow-lg hover:shadow-purple-500/30',
-		secondary:
-			'bg-bg-elevated text-text-primary hover:bg-bg-hover border border-border-default',
+		secondary: 'bg-bg-elevated text-text-primary hover:bg-bg-hover border border-border-default',
 		outline:
 			'border border-purple-500/30 text-text-primary hover:bg-purple-500/10 hover:border-purple-500/50',
 		ghost: 'text-text-secondary hover:text-text-primary hover:bg-bg-elevated',
@@ -47,7 +50,7 @@
 </script>
 
 {#if href}
-	<a {href} class={classes}>
+	<a {href} {target} {rel} class={classes}>
 		{@render children()}
 	</a>
 {:else}

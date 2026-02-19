@@ -21,11 +21,31 @@
 			maximumFractionDigits: 0
 		}).format(price);
 	}
+
+	const WA_NUMBER = '6285709466801';
+
+	function buildWaUrl(plan: (typeof $t.pricing.plans)[number]): string {
+		const priceText = plan.price
+			? formatPrice(plan.price, $t.pricing.currency)
+			: 'Negosiasi (custom)';
+
+		const featureList = plan.features.map((f) => `  ✅ ${f}`).join('\n');
+
+		const message =
+			`Halo SOLARIA DEV! 👋\n\n` +
+			`Saya tertarik dengan *Paket ${plan.name}* (${priceText}).\n\n` +
+			`📋 *Fitur yang saya butuhkan:*\n${featureList}\n\n` +
+			`Boleh saya tahu lebih lanjut mengenai paket ini? Terima kasih! 🙏`;
+
+		return `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`;
+	}
 </script>
 
-<section id="pricing" class="bg-bg-secondary py-24 relative overflow-hidden">
+<section id="pricing" class="relative overflow-hidden bg-bg-secondary py-24">
 	<!-- Background Orb -->
-	<div class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-150 w-150 orb-glow opacity-20"></div>
+	<div
+		class="orb-glow absolute top-1/2 left-1/2 h-150 w-150 -translate-x-1/2 -translate-y-1/2 opacity-20"
+	></div>
 
 	<Container>
 		<!-- Section Header -->
@@ -40,40 +60,42 @@
 			</div>
 		</ScrollReveal>
 
-		<div class="grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 max-w-7xl mx-auto">
+		<div class="mx-auto grid max-w-7xl grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
 			{#each $t.pricing.plans as plan, i}
 				<ScrollReveal delay={i * 100}>
 					<div
-						class="relative h-full rounded-3xl p-6 transition-all duration-500 card-glow flex flex-col
-						{plan.highlighted
-							? 'glass-purple ring-2 ring-accent-cta'
-							: 'glass-purple'}"
+						class="card-glow relative flex h-full flex-col rounded-3xl p-6 transition-all duration-500
+						{plan.highlighted ? 'glass-purple ring-2 ring-accent-cta' : 'glass-purple'}"
 					>
 						<!-- Popular Badge -->
 						{#if plan.highlighted}
-							<div class="absolute -top-3 left-1/2 -translate-x-1/2 z-10">
-								<span class="rounded-full bg-accent-cta px-4 py-1 text-xs font-bold text-white shadow-lg whitespace-nowrap">
+							<div class="absolute -top-3 left-1/2 z-10 -translate-x-1/2">
+								<span
+									class="rounded-full bg-accent-cta px-4 py-1 text-xs font-bold whitespace-nowrap text-white shadow-lg"
+								>
 									Paling Populer
 								</span>
 							</div>
 						{/if}
 
 						<!-- Icon -->
-						<div class="mb-4 p-3 rounded-xl bg-purple-500/10 w-fit {plan.highlighted ? 'mt-2' : ''}">
+						<div
+							class="mb-4 w-fit rounded-xl bg-purple-500/10 p-3 {plan.highlighted ? 'mt-2' : ''}"
+						>
 							<svelte:component this={iconMap[plan.icon]} size={24} class="text-purple-400" />
 						</div>
 
 						<!-- Header -->
 						<h3 class="text-xl font-bold text-text-primary">{plan.name}</h3>
-						<p class="text-sm text-text-secondary mt-1 mb-4">{plan.description}</p>
+						<p class="mt-1 mb-4 text-sm text-text-secondary">{plan.description}</p>
 
 						<!-- Divider -->
-						<div class="h-px bg-white/10 my-4"></div>
+						<div class="my-4 h-px bg-white/10"></div>
 
 						<!-- Price -->
 						<div class="mb-4">
 							{#if !plan.hideStartingFrom}
-								<p class="text-xs text-text-secondary mb-1">{$t.pricing.startingFrom}</p>
+								<p class="mb-1 text-xs text-text-secondary">{$t.pricing.startingFrom}</p>
 							{/if}
 							<p class="text-2xl font-bold text-text-primary">
 								{plan.price ? formatPrice(plan.price, $t.pricing.currency) : $t.pricing.customPrice}
@@ -81,33 +103,35 @@
 						</div>
 
 						<!-- Divider -->
-						<div class="h-px bg-white/10 my-4"></div>
+						<div class="my-4 h-px bg-white/10"></div>
 
 						<!-- Features -->
-						<ul class="space-y-2 mb-6 grow">
+						<ul class="mb-6 grow space-y-2">
 							{#each plan.features as feature}
 								<li class="flex items-start gap-2">
-									<div class="shrink-0 mt-0.5 flex h-4 w-4 items-center justify-center rounded-full bg-purple-500/20">
+									<div
+										class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-purple-500/20"
+									>
 										<Check size={10} class="text-purple-400" strokeWidth={3} />
 									</div>
-									<span class="text-text-secondary text-sm">{feature}</span>
+									<span class="text-sm text-text-secondary">{feature}</span>
 								</li>
 							{/each}
 						</ul>
 
 						<!-- CTA Button -->
 						<Button
-							href="#contact"
+							href={buildWaUrl(plan)}
+							target="_blank"
+							rel="noopener noreferrer"
 							variant={plan.highlighted ? 'cta' : 'outline'}
-							class="w-full mt-auto"
+							class="mt-auto w-full"
 						>
 							{plan.cta}
-					</Button>
+						</Button>
 					</div>
 				</ScrollReveal>
 			{/each}
 		</div>
-
-		
 	</Container>
 </section>

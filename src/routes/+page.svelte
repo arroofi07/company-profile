@@ -9,6 +9,7 @@
 	import FAQ from '$lib/components/sections/FAQ.svelte';
 	import Contact from '$lib/components/sections/Contact.svelte';
 	import ScrollToTop from '$lib/components/ui/ScrollToTop.svelte';
+	import WhatsAppPopup from '$lib/components/ui/WhatsAppPopup.svelte';
 	import SEO from '$lib/components/SEO.svelte';
 	import JsonLd from '$lib/components/JsonLd.svelte';
 	import type { PageData } from './$types';
@@ -32,3 +33,4 @@
 </main>
 
 <ScrollToTop />
+<WhatsAppPopup />
