@@ -111,6 +111,7 @@ export const id = {
 				description: 'Platform e-commerce modern untuk brand fashion dengan fitur AR try-on.',
 				image: 'fashion',
 				tags: ['E-Commerce', 'React', 'Node.js'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -120,6 +121,7 @@ export const id = {
 					'Dashboard analitik real-time untuk perusahaan SaaS dengan visualisasi data interaktif.',
 				image: 'dashboard',
 				tags: ['Web App', 'Svelte', 'D3.js'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -128,6 +130,7 @@ export const id = {
 				description: 'Aplikasi reservasi restoran dengan sistem manajemen meja dan review.',
 				image: 'restaurant',
 				tags: ['Web App', 'Next.js', 'PostgreSQL'],
+				link: '#',
 				featured: false
 			},
 			{
@@ -137,6 +140,7 @@ export const id = {
 					'Portal kesehatan digital dengan fitur telemedicine dan rekam medis elektronik.',
 				image: 'healthcare',
 				tags: ['Web App', 'Vue.js', 'Python'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -146,6 +150,7 @@ export const id = {
 					'Platform pembelajaran online dengan fitur video streaming dan quiz interaktif.',
 				image: 'education',
 				tags: ['Web App', 'React', 'AWS'],
+				link: '#',
 				featured: false
 			},
 			{
@@ -154,6 +159,7 @@ export const id = {
 				description: 'Aplikasi keuangan digital dengan fitur pembayaran dan investasi.',
 				image: 'fintech',
 				tags: ['Mobile Web', 'Flutter', 'Firebase'],
+				link: '#',
 				featured: false
 			}
 		]

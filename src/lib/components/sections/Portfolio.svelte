@@ -29,6 +29,18 @@
 
 	let currentIndex = $state(0);
 	let itemsPerView = $state(1);
+	let expandedItems = $state(new Set<string>()); // Use Set<string> for storing expanded IDs
+
+	function toggleExpand(event: Event, id: string) {
+		event.stopPropagation(); // Prevent card click
+		const newSet = new Set(expandedItems);
+		if (newSet.has(id)) {
+			newSet.delete(id);
+		} else {
+			newSet.add(id);
+		}
+		expandedItems = newSet;
+	}
 
 	// Responsive itemsPerView
 	$effect(() => {
@@ -88,45 +100,50 @@
 				<button
 					onclick={prev}
 					disabled={currentIndex === 0}
-					class="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bg-elevated p-2 md:p-3 text-text-secondary border border-border-subtle transition-all hover:bg-bg-hover hover:text-text-primary disabled:opacity-30 disabled:cursor-not-allowed md:-left-6"
+					class="absolute top-1/2 left-0 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary transition-all hover:bg-bg-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-30 md:-left-6 md:p-3"
 					aria-label="Previous"
 				>
-					<ChevronLeft size={20} class="md:w-6 md:h-6" />
+					<ChevronLeft size={20} class="md:h-6 md:w-6" />
 				</button>
 				<button
 					onclick={next}
 					disabled={currentIndex >= maxIndex}
-					class="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full bg-bg-elevated p-2 md:p-3 text-text-secondary border border-border-subtle transition-all hover:bg-bg-hover hover:text-text-primary disabled:opacity-30 disabled:cursor-not-allowed md:-right-6"
+					class="absolute top-1/2 right-0 z-10 -translate-y-1/2 rounded-full border border-border-subtle bg-bg-elevated p-2 text-text-secondary transition-all hover:bg-bg-hover hover:text-text-primary disabled:cursor-not-allowed disabled:opacity-30 md:-right-6 md:p-3"
 					aria-label="Next"
 				>
-					<ChevronRight size={20} class="md:w-6 md:h-6" />
+					<ChevronRight size={20} class="md:h-6 md:w-6" />
 				</button>
 
 				<!-- Carousel Track -->
-				<div class="overflow-hidden rounded-2xl mx-8 md:mx-0">
+				<div class="mx-8 overflow-hidden rounded-2xl md:mx-0">
 					<div
 						class="flex transition-transform duration-500 ease-out"
 						style="transform: translateX(-{currentIndex * slideWidth}%)"
 					>
 						{#each displayItems as project, i}
-							<div
-								class="shrink-0 px-2 md:px-3"
-								style="width: {slideWidth}%"
-							>
+							<div class="shrink-0 px-2 md:px-3" style="width: {slideWidth}%">
 								<div
-									class="card-lift group relative h-full overflow-hidden rounded-xl border border-border-subtle bg-bg-tertiary transition-all duration-300 hover:border-border-hover"
+									role="button"
+									tabindex="0"
+									onclick={() => window.open(project.link || '#', '_blank')}
+									onkeydown={(e) => {
+										if (e.key === 'Enter' || e.key === ' ') {
+											window.open(project.link || '#', '_blank');
+										}
+									}}
+									class="card-lift group relative block h-full cursor-pointer overflow-hidden rounded-xl border border-border-subtle bg-bg-tertiary text-left transition-all duration-300 hover:border-border-hover"
 								>
 									<!-- Image Container -->
-									<div class="relative aspect-[4/3] overflow-hidden">
+									<div class="relative aspect-4/3 overflow-hidden">
 										{#if project.image?.startsWith('http')}
 											<img
 												src={project.image}
 												alt={project.title}
-												class="absolute inset-0 w-full h-full object-cover"
+												class="absolute inset-0 h-full w-full object-cover"
 											/>
 										{:else}
 											<div
-												class="absolute inset-0 bg-gradient-to-br from-neutral-700 to-neutral-900"
+												class="absolute inset-0 bg-linear-to-br from-neutral-700 to-neutral-900"
 											></div>
 										{/if}
 										<!-- Pattern overlay -->
@@ -151,25 +168,38 @@
 											class="absolute inset-0 flex flex-col items-center justify-center bg-bg-primary/90 opacity-0 transition-all duration-300 group-hover:opacity-100"
 										>
 											<span class="mb-4 text-xl font-bold text-text-primary">{project.title}</span>
-											<button
+											<div
 												class="flex items-center gap-2 rounded-full bg-accent-cta px-6 py-3 font-medium text-black transition-transform hover:scale-105"
 											>
 												{$t.portfolio.viewProject}
 												<ExternalLink size={16} />
-											</button>
+											</div>
 										</div>
 									</div>
 
 									<!-- Content -->
 									<div class="p-6">
 										<h3
-											class="mb-2 text-lg font-bold text-text-primary group-hover:text-accent-cta transition-colors"
+											class="mb-2 text-lg font-bold text-text-primary transition-colors group-hover:text-accent-cta"
 										>
 											{project.title}
 										</h3>
-										<p class="mb-4 text-sm text-text-secondary line-clamp-2">
-											{project.description}
-										</p>
+
+										<div class="mb-4 text-sm text-text-secondary">
+											<p class={!expandedItems.has(project.id) ? 'line-clamp-2' : ''}>
+												{project.description}
+											</p>
+											{#if project.description.length > 100}
+												<button
+													type="button"
+													class="relative z-10 mt-1 text-xs font-semibold text-purple-400 hover:text-purple-300"
+													onclick={(e) => toggleExpand(e, project.id)}
+												>
+													{expandedItems.has(project.id) ? 'Sembunyikan' : 'Selengkapnya'}
+												</button>
+											{/if}
+										</div>
+
 										<div class="flex flex-wrap gap-2">
 											{#each project.tags.slice(0, 3) as tag}
 												<span
@@ -194,13 +224,13 @@
 				</div>
 
 				<!-- Dots Navigation -->
-				<div class="flex justify-center gap-2 mt-8">
+				<div class="mt-8 flex justify-center gap-2">
 					{#each Array(maxIndex + 1) as _, i}
 						<button
 							onclick={() => goTo(i)}
 							class="h-2 rounded-full transition-all duration-300 {i === currentIndex
-								? 'bg-text-primary w-8'
-								: 'bg-border-default w-2 hover:bg-border-hover'}"
+								? 'w-8 bg-text-primary'
+								: 'w-2 bg-border-default hover:bg-border-hover'}"
 							aria-label="Go to slide {i + 1}"
 						></button>
 					{/each}

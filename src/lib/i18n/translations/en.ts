@@ -108,6 +108,7 @@ export const en = {
 				description: 'Modern e-commerce platform for fashion brand with AR try-on feature.',
 				image: 'fashion',
 				tags: ['E-Commerce', 'React', 'Node.js'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -117,6 +118,7 @@ export const en = {
 					'Real-time analytics dashboard for SaaS company with interactive data visualization.',
 				image: 'dashboard',
 				tags: ['Web App', 'Svelte', 'D3.js'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -125,6 +127,7 @@ export const en = {
 				description: 'Restaurant reservation app with table management system and reviews.',
 				image: 'restaurant',
 				tags: ['Web App', 'Next.js', 'PostgreSQL'],
+				link: '#',
 				featured: false
 			},
 			{
@@ -134,6 +137,7 @@ export const en = {
 					'Digital healthcare portal with telemedicine and electronic medical records features.',
 				image: 'healthcare',
 				tags: ['Web App', 'Vue.js', 'Python'],
+				link: '#',
 				featured: true
 			},
 			{
@@ -142,6 +146,7 @@ export const en = {
 				description: 'Online learning platform with video streaming and interactive quiz features.',
 				image: 'education',
 				tags: ['Web App', 'React', 'AWS'],
+				link: '#',
 				featured: false
 			},
 			{
@@ -150,6 +155,7 @@ export const en = {
 				description: 'Digital finance application with payment and investment features.',
 				image: 'fintech',
 				tags: ['Mobile Web', 'Flutter', 'Firebase'],
+				link: '#',
 				featured: false
 			}
 		]
