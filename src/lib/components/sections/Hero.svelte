@@ -138,11 +138,11 @@
 				<div class="animate-float-slow absolute bottom-1/3 left-2 z-20 hidden lg:block">
 					<div class="glass-purple rounded-2xl p-4 shadow-xl">
 						<div class="flex items-center gap-3">
-							<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-500/20">
-								<Send size={20} class="text-blue-400" />
+							<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-300/20">
+								<MessageCircle size={20} class="text-teal-400" />
 							</div>
 							<div>
-								<p class="text-sm font-semibold text-text-primary">Telegram</p>
+								<p class="text-sm font-semibold text-text-primary">WhatsApp</p>
 								<p class="text-xs text-text-muted">Fast Response</p>
 							</div>
 						</div>
