@@ -34,13 +34,13 @@
 					>
 						<Send size={18} />
 					</a>
-					<a
+					<!-- <a
 						href="https://instagram.com"
 						class="flex h-10 w-10 items-center justify-center rounded-full bg-pink-500/10 text-pink-400 transition-all hover:bg-pink-500/20"
 						aria-label="Instagram"
 					>
 						<Instagram size={18} />
-					</a>
+					</a> -->
 					<a
 						href="mailto:solariadev7@gmail.com"
 						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-purple-400 transition-all hover:bg-purple-500/20"
@@ -66,7 +66,10 @@
 						</a>
 					</li>
 					<li>
-						<a href="#portfolio" class="text-text-secondary transition-colors hover:text-purple-400">
+						<a
+							href="#portfolio"
+							class="text-text-secondary transition-colors hover:text-purple-400"
+						>
 							{$t.nav.portfolio}
 						</a>
 					</li>
@@ -111,7 +114,7 @@
 				<ul class="space-y-4">
 					<li class="flex items-center gap-3 text-text-secondary">
 						<Mail size={18} class="text-purple-400" />
-						<a href="mailto:{$t.company.email}" class="hover:text-purple-400 transition-colors">
+						<a href="mailto:{$t.company.email}" class="transition-colors hover:text-purple-400">
 							{$t.company.email}
 						</a>
 					</li>
@@ -126,7 +129,8 @@
 		<!-- Bottom Bar -->
 		<div class="mt-12 border-t border-purple-500/20 pt-8 text-center">
 			<p class="text-text-muted">
-				&copy; {currentYear} {$t.company.name}. {$t.footer.copyright}
+				&copy; {currentYear}
+				{$t.company.name}. {$t.footer.copyright}
 			</p>
 		</div>
 	</Container>

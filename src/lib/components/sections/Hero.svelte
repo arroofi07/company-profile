@@ -18,12 +18,12 @@
 			href: 'https://t.me/han_arpansi',
 			color: 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30'
 		},
-		{
-			icon: Instagram,
-			label: 'Instagram',
-			href: 'https://instagram.com',
-			color: 'bg-pink-500/20 text-pink-400 hover:bg-pink-500/30'
-		},
+		// {
+		// 	icon: Instagram,
+		// 	label: 'Instagram',
+		// 	href: 'https://instagram.com',
+		// 	color: 'bg-pink-500/20 text-pink-400 hover:bg-pink-500/30'
+		// },
 		{
 			icon: Mail,
 			label: 'Email',
@@ -120,7 +120,7 @@
 				style="animation-delay: 0.3s;"
 			>
 				<!-- Floating Card - Top Right -->
-				<div class="animate-float-delayed absolute top-16 -right-8 z-20 hidden lg:block">
+				<!-- <div class="animate-float-delayed absolute top-16 -right-8 z-20 hidden lg:block">
 					<div class="glass-purple rounded-2xl p-4 shadow-xl">
 						<div class="flex items-center gap-3">
 							<div class="flex h-10 w-10 items-center justify-center rounded-xl bg-pink-500/20">
@@ -132,7 +132,7 @@
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 
 				<!-- Floating Card - Bottom Left -->
 				<div class="animate-float-slow absolute bottom-1/3 left-2 z-20 hidden lg:block">

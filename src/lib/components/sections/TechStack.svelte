@@ -5,41 +5,14 @@
 	import Marquee from '$lib/components/ui/Marquee.svelte';
 	import { t } from '$lib/i18n';
 
-	const technologies = [
-		'Laravel',
-		'Svelte',
-		'Php',
-		'TypeScript',
-		'JavaScript',
-		'Bootstrap',
-		'React',
-		'NodeJs',
-		'PostgreSQL',
-		'MySQL',
-		'Tailwind',
-		'HTML',
-		'CSS',
-		'ExpressJs',
-		'NestJS'
-	];
+	const technologies = ['Golang', 'Svelte', 'Laravel', 'React'];
 
 	// Warna berbeda untuk setiap teknologi berdasarkan brand identity
 	const colorMap: Record<string, { bg: string; text: string }> = {
-		Laravel: { bg: 'bg-red-600/10', text: 'text-red-600' },
+		Golang: { bg: 'bg-red-600/10', text: 'text-red-600' },
 		Svelte: { bg: 'bg-orange-500/10', text: 'text-orange-500' },
-		Php: { bg: 'bg-purple-600/10', text: 'text-purple-600' },
-		TypeScript: { bg: 'bg-blue-600/10', text: 'text-blue-600' },
-		JavaScript: { bg: 'bg-yellow-400/10', text: 'text-yellow-400' },
-		Bootstrap: { bg: 'bg-purple-500/10', text: 'text-purple-500' },
 		React: { bg: 'bg-cyan-500/10', text: 'text-cyan-500' },
-		NodeJs: { bg: 'bg-green-600/10', text: 'text-green-600' },
-		PostgreSQL: { bg: 'bg-blue-700/10', text: 'text-blue-700' },
-		MySQL: { bg: 'bg-blue-500/10', text: 'text-blue-500' },
-		Tailwind: { bg: 'bg-teal-400/10', text: 'text-teal-400' },
-		HTML: { bg: 'bg-orange-400/10', text: 'text-orange-400' },
-		CSS: { bg: 'bg-blue-400/10', text: 'text-blue-400' },
-		ExpressJs: { bg: 'bg-yellow-700/10', text: 'text-yellow-400' },
-		NestJS: { bg: 'bg-red-500/10', text: 'text-red-500' }
+		Laravel: { bg: 'bg-purple-600/10', text: 'text-purple-600' }
 	};
 </script>
 

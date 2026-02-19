@@ -4,17 +4,17 @@ export const faqItems: FAQItem[] = [
 	{
 		id: '1',
 		question: 'Berapa lama waktu pengerjaan website?',
-		answer: 'Waktu pengerjaan bervariasi tergantung kompleksitas project. Website standar biasanya membutuhkan 2-4 minggu, sedangkan web application bisa memakan waktu 1-3 bulan. Kami akan memberikan timeline yang jelas setelah diskusi kebutuhan.'
+		answer: 'Waktu pengerjaan kami lebih cepat dibandingkan dengan yang lain. Waktu pengerjaan bervariasi tergantung kompleksitas project. Website standar biasanya membutuhkan 1-2 minggu, sedangkan web application bisa memakan waktu 1-1.5 bulan. Kami akan memberikan timeline yang jelas setelah diskusi kebutuhan.'
 	},
 	{
 		id: '2',
 		question: 'Apakah ada biaya maintenance setelah website selesai?',
-		answer: 'Setiap paket sudah termasuk periode support gratis (30-90 hari atau 12 bulan tergantung paket). Setelah itu, kami menawarkan paket maintenance bulanan yang bisa disesuaikan dengan kebutuhan Anda.'
+		answer: 'Setiap paket sudah termasuk periode support gratis (6 bulan). Setelah itu, kami menawarkan paket maintenance bulanan yang bisa disesuaikan dengan kebutuhan Anda.'
 	},
 	{
 		id: '3',
 		question: 'Teknologi apa yang digunakan untuk development?',
-		answer: 'Kami menggunakan teknologi modern seperti React, Svelte, Next.js, Node.js, dan berbagai framework lainnya. Pemilihan teknologi akan disesuaikan dengan kebutuhan project untuk hasil yang optimal.'
+		answer: 'Kami menggunakan teknologi modern seperti Svelte, Next.js, Node.js, Golang, Laravel dan berbagai framework lainnya. Pemilihan teknologi akan disesuaikan dengan kebutuhan project untuk hasil yang optimal.'
 	},
 	{
 		id: '4',
