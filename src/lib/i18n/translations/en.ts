@@ -241,7 +241,7 @@ export const en = {
 				id: 'landing-page',
 				name: 'Landing Page',
 				description: 'Personal, portfolio, event, short campaigns',
-				price: 55,
+				price: 200,
 				icon: 'FileText',
 				features: [
 					'1 page landing page',
@@ -258,7 +258,7 @@ export const en = {
 				id: 'web-dinamis',
 				name: 'System / Dynamic Web',
 				description: 'Website with internal systems',
-				price: 245,
+				price: 800,
 				icon: 'Database',
 				highlighted: true,
 				features: [
@@ -269,7 +269,7 @@ export const en = {
 					'Professional & responsive design',
 					'Custom backend system',
 					'Database & form integration',
-					'Basic SEO + Google Analytics',
+					'SEO + Google Analytics',
 					'3 months support'
 				],
 				cta: 'Choose Plan'
@@ -278,7 +278,7 @@ export const en = {
 				id: 'startup',
 				name: 'Startup / Web App',
 				description: 'Large-scale web application',
-				price: 615,
+				price: 3000,
 				icon: 'Rocket',
 				features: [
 					'Custom & responsive design',
