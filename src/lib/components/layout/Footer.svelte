@@ -29,13 +29,6 @@
 						<MessageCircle size={18} />
 					</a>
 					<a
-						href="https://t.me/han_arpansi"
-						class="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 text-blue-400 transition-all hover:bg-blue-500/20"
-						aria-label="Telegram"
-					>
-						<Send size={18} />
-					</a>
-					<a
 						href="mailto:solariadev7@gmail.com"
 						class="flex h-10 w-10 items-center justify-center rounded-full bg-purple-500/10 text-purple-400 transition-all hover:bg-purple-500/20"
 						aria-label="Email"

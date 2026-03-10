@@ -13,12 +13,6 @@
 			color: 'bg-green-500/20 text-green-400 hover:bg-green-500/30'
 		},
 		{
-			icon: Send,
-			label: 'Telegram',
-			href: 'https://t.me/han_arpansi',
-			color: 'bg-blue-500/20 text-blue-400 hover:bg-blue-500/30'
-		},
-		{
 			icon: Mail,
 			label: 'Email',
 			href: 'mailto:solariadev7@gmail.com',
