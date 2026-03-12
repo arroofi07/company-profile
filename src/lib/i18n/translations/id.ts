@@ -245,7 +245,7 @@ export const id = {
 				id: 'landing-page',
 				name: 'Landing Page',
 				description: 'Personal, portofolio, event, kampanye singkat',
-				price: 900000,
+				price: 1000000,
 				icon: 'FileText',
 				features: [
 					'Landing page 1 halaman',
